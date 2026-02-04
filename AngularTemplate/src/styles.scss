@@ -1,0 +1,23 @@
+@use './styles/variables';
+@use './styles/typography' as typo;
+@use './styles/bootstrap-custom';
+@use './styles/theme' as th;
+
+@include th.apply-theme();
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card, .btn, .table, .form-control, .navbar {
+  transition: all 0.3s ease;
+}
