@@ -1,10 +1,12 @@
 import {
   EVENT_MANAGER_PLUGINS,
-  EventManagerPlugin,
+  EventManagerPlugin
+} from "./chunk-3KJDRLEU.js";
+import {
   XhrFactory,
   getDOM,
   parseCookieValue
-} from "./chunk-NJYQCKPP.js";
+} from "./chunk-KJNOB2KG.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -3500,4 +3502,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-XEAOX7SD.js.map
+//# sourceMappingURL=chunk-YS2IAXYL.js.map

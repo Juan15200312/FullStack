@@ -1,1 +1,36 @@
-<p>register works!</p>
+<form class="my-4">
+    <div class="mb-3">
+        <label for="names" class="form-label">Nombres</label>
+        <input type="text" class="form-control" placeholder="Nombre y Apellido" id="names">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" placeholder="nombre@gmail.com" id="email">
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <div class="position-relative">
+            <input [type]="viewPassword ? 'text':'password'"
+                   class="form-control pe-5" placeholder="Ingrese su contraseña" id="password1">
+            <i class="bi position-absolute view-icon" (click)="changePassword()"
+               [ngClass]="viewPassword ? 'bi-eye-slash':'bi-eye'"
+            ></i>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Repetir contraseña</label>
+        <div class="position-relative">
+            <input [type]="viewPassword ? 'text':'password'"
+                   class="form-control pe-5" placeholder="Confirme su contraseña" id="password2">
+            <i class="bi position-absolute view-icon" (click)="changePassword()"
+               [ngClass]="viewPassword ? 'bi-eye-slash':'bi-eye'"
+            ></i>
+        </div>
+    </div>
+
+    <button class="mt-3 w-100 btn btn-primary fw-bold ">Registrarse</button>
+</form>
+

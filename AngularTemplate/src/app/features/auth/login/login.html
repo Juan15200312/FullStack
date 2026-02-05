@@ -1,1 +1,74 @@
-<p>login works!</p>
+<section class="row g-0 vh-100">
+
+    <div class="d-none d-md-flex col-md-6 align-items-center justify-content-center">
+        <img src="assets/media/images/book-lover.png"
+             class="img-fluid w-75"
+             alt="Book Lover">
+    </div>
+
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+        <div class="formularios px-4 my-5 w-100" style="max-width: 550px;">
+
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Bienvenido a BossKy</h2>
+                <p class="text-muted">Introduce tus datos para acceder a tu biblioteca personal</p>
+            </div>
+
+            <div class="w-100 d-flex flex-row mt-4 text-center border-bottom">
+                <div class="w-50 botones-form c-pointer py-2" (click)="changeForm()"
+                     [ngClass]="isFormLogin() ? 'selectBtn border-bottom border-primary border-3 fw-bold' : 'text-muted'">
+                    <span>Iniciar sesión</span>
+                </div>
+                <div class="w-50 botones-form c-pointer py-2" (click)="changeForm()"
+                     [ngClass]="isFormLogin() ? 'text-muted' : 'selectBtn border-bottom border-primary border-3 fw-bold'">
+                    <span>Registrarse</span>
+                </div>
+            </div>
+
+            @if (isFormLogin()) {
+                <form class="my-4">
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                        <input type="email" class="form-control" placeholder="nombre@gmail.com"
+                               id="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold">Contraseña</label>
+                        <div class="position-relative">
+                            <input [type]="viewPassword ? 'text':'password'"
+                                   class="form-control pe-5" placeholder="Ingrese su contraseña"
+                                   id="password">
+                            <i class="bi position-absolute top-50 end-0 translate-middle-y me-3 c-pointer view-icon"
+                               (click)="changePassword()"
+                               [ngClass]="viewPassword ? 'bi-eye-slash':'bi-eye'"></i>
+                        </div>
+                    </div>
+
+                    <button class="mt-3 w-100 btn btn-primary fw-bold">Iniciar Sesión</button>
+                </form>
+            } @else {
+                <div class="my-4">
+                    <app-register></app-register>
+                </div>
+            }
+
+            <div class="divider mt-5 mb-4 position-relative text-center">
+                <span class="bg-light">O continuar con</span>
+            </div>
+
+            <div class="d-flex flex-row justify-content-center gap-3 mb-5">
+                <button class="btn bg-white border-black d-flex align-items-center justify-content-center py-2">
+                    <i class="bi bi-google pe-2"></i>
+                    Continuar con Google
+                </button>
+                <button class="btn bg-white border-black d-flex align-items-center justify-content-center py-2">
+                    <i class="bi bi-apple pe-2"></i>
+                    Continuar con Apple
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</section>

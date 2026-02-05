@@ -1,0 +1,26 @@
+.botones-form{
+  border-bottom: 1px solid #615e5e;
+}
+
+.selectBtn{
+  border-bottom: 3px solid var(--color-primary);
+  font-weight: bold;
+  color: #0055ff;
+}
+
+.divider {
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.divider span {
+  background: white;
+  padding: 0 10px;
+  position: relative;
+  top: -10px;
+  font-size: 14px;
+  color: #666;
+}
+
+
