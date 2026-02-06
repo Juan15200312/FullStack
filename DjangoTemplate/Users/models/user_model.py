@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+import uuid
 
 
 class CustomManagerUser(BaseUserManager):
@@ -22,10 +23,9 @@ class CustomManagerUser(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    names = models.CharField(max_length=255, null=False, blank=False, verbose_name="Nombres")
+    names = models.CharField(max_length=50, null=False, blank=False, verbose_name="Nombres")
     email = models.EmailField(max_length=255, unique=True, null=False, blank=False,verbose_name='Correo electrónico')
-    phone = models.CharField(max_length=11, unique=True, verbose_name='Teléfono')
-
+    slug = models.CharField(max_length=64, null=True, blank=True)
 
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -33,10 +33,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomManagerUser()
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['names', 'phone']
+    REQUIRED_FIELDS = ['names',]
 
     def __str__(self):
         return self.names
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            provisional = uuid.uuid4().hex
+            while CustomUser.objects.filter(slug=provisional).exists():
+                provisional = uuid.uuid4().hex
+
+            self.slug = provisional
+        return super().save(*args,**kwargs)
 
     class Meta:
         verbose_name = 'Usuario'
