@@ -1,8 +1,15 @@
 # Instalación
 
+### Instalar venv
+- Windows ---> python -m venv .venv 
+- Linux ---> python3 -m venv .venv
+
+### Activar venv
+- Windows ---> .venv\Scripts\activate 
+- Linux ---> source .venv/bin/activate
+
 ### Generar el archivo requirements.txt
 python -m pip freeze > requirements.txt
-
 
 ### Instalar los librerias
 python -m pip install -r requirements.txt

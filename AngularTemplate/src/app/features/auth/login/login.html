@@ -15,11 +15,11 @@
             </div>
 
             <div class="w-100 d-flex flex-row mt-4 text-center border-bottom">
-                <div class="w-50 botones-form c-pointer py-2" (click)="changeForm()"
+                <div class="w-50 botones-form c-pointer py-2" (click)="isFormLogin.set(true)"
                      [ngClass]="isFormLogin() ? 'selectBtn border-bottom border-primary border-3 fw-bold' : 'text-muted'">
                     <span>Iniciar sesión</span>
                 </div>
-                <div class="w-50 botones-form c-pointer py-2" (click)="changeForm()"
+                <div class="w-50 botones-form c-pointer py-2" (click)="isFormLogin.set(false)"
                      [ngClass]="isFormLogin() ? 'text-muted' : 'selectBtn border-bottom border-primary border-3 fw-bold'">
                     <span>Registrarse</span>
                 </div>
@@ -85,7 +85,7 @@
                 </form>
             } @else {
                 <div class="my-4">
-                    <app-register></app-register>
+                    <app-register (onClose)="isFormLogin.set(true)"></app-register>
                 </div>
             }
 

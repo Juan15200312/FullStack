@@ -44,8 +44,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return validarPassword(password2)
 
     def validate(self, data):
-        print(data.get('password1'))
-        print(data.get('password2'))
         if data.get('password1') != data.get('password2'):
             raise serializers.ValidationError('Las contraseñas no coinciden')
         return data

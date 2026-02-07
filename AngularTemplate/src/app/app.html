@@ -1,1 +1,13 @@
 <router-outlet></router-outlet>
+
+
+@if (alertService.show()) {
+    <app-popups (onClose)="alertService.close()" [type]="alertConfig().type">
+        <app-alert
+                [title]="alertConfig().title"
+                [icon]="alertConfig().icon"
+                [message]="alertConfig().message"
+                [color]="alertConfig().color">
+        </app-alert>
+    </app-popups>
+}

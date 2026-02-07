@@ -64,8 +64,8 @@ class LoginSerializer(serializers.ModelSerializer):
             'data': {
                 'user': {
                     'names': user.names,
-                    'phone': user.phone if user.phone else 'No tiene teléfono',
-
+                    'email': user.email,
+                    'photo_perfil': user.info.photo_perfil.url,
                 },
                 'access_token': str(access_token),
                 'refresh_token': str(refresh_token)
