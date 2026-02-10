@@ -56,9 +56,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             names = validated_data.get('names'),
             email= validated_data.get('email'),
         )
-        print(user)
 
         user.set_password(password)
         user.save()
         return user
-

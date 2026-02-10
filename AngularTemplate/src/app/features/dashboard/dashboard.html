@@ -1,0 +1,128 @@
+<section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="p-5 cont">
+        <div class="row bg-white rounded-3 px-3 g-5 pb-5">
+            <div class="col-12 col-md-7 col-lg-9 d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column">
+                    <div class="d-flex align-self-start gap-2 bg-primary bg-opacity-25 text-primary rounded-pill p-1 px-2">
+                        <i class="bi bi-patch-check"></i>
+                        <span class="fw-semibold">Libro del mes</span>
+                    </div>
+                    <h1 class="fw-bold mt-2">The Midnight Library</h1>
+                    <p class="opacity-75">Entre la vida y la muerte hay una biblioteca, y dentro de ella, los estantes
+                        son infinitos. Cada libro ofrece la oportunidad de probar otra vida que podrías haber vivido.
+                        Lorem ipsum dolor sit
+                        amet, consectetur adipisicing elit. Ab, assumenda autem consequatur cum cupiditate dolor est
+                        harum id in iste modi nisi nobis nulla numquam quos, ratione sint ullam vel.
+                    </p>
+                    <p class="fw-semibold">Matt Haig</p>
+                </div>
+
+                <div class="mt-3 d-flex gap-3">
+                    <button class="btn btn-primary fw-bold">Leer muestra</button>
+                    <button class="btn btn-light border-secondary">Agregar a Mi lista</button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5 col-lg-3 d-flex flex-column align-items-center justify-content-center">
+                <img src="/assets/media/libros_images/libro1.png" class="c-pointer img-fluid img-port rounded-3">
+            </div>
+        </div>
+    </div>
+
+    <div class="py-5 px-4 cont d-flex flex-column gap-4 w-100 justify-content-start">
+        <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+            <h2 class="fw-bold">Explorar por género</h2>
+            <div class="d-flex justify-content-center align-items-center gap-1 text-center text-primary c-pointer fw-semibold">
+                <span>Todas las categorías</span>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="d-flex gap-4 deslis">
+            @for (category of categories(); track category.id) {
+                <div class="bg-white rounded-3 d-flex flex-column px-5 py-4 gap-3 card-cat align-items-center justify-content-center">
+                    <div class="rounded-circle {{category.color}} px-2 py-2 d-flex align-items-center justify-content-center">
+                        <i class="{{category.icon}} text-medical fs-4"></i>
+                    </div>
+                    <p class="m-0 p-0 fw-semibold">{{category.name}}</p>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div class="py-5 px-4 cont d-flex flex-column gap-4 w-100 justify-content-start">
+        <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+            <h2 class="fw-bold">Recién llegados</h2>
+            <div class="d-flex justify-content-center align-items-center gap-1 text-center text-primary c-pointer fw-semibold">
+                <span>Ver todo</span>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="d-flex gap-5 deslis">
+            <div class="card-book d-flex flex-column c-pointer gap-3">
+                <div class="d-flex flex-column position-relative align-items-end justify-content-end">
+                    <img src="/assets/media/libros_images/libro2.png" class="img-cat rounded-3">
+                    <div class="add-cart rounded-circle position-absolute px-2 py-1 m-2 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-cart-plus fs-5"></i>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="m-0 p-0 fw-bolder">Project Hail Mary</p>
+                    <p class="m-0 p-0 opacity-75">Andy Weir</p>
+                    <p class="m-0 p-0 fw-semibold">15.99 €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-5 px-4 cont d-flex flex-column gap-4 w-100 justify-content-start">
+        <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+            <h2 class="fw-bold">Los más vendidos</h2>
+            <div class="d-flex justify-content-center align-items-center gap-1 text-center text-primary c-pointer fw-semibold">
+                <span>Ver todo</span>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="d-flex gap-5 deslis">
+            <div class="card-book d-flex flex-column c-pointer gap-3">
+                <div class="d-flex flex-column position-relative align-items-end justify-content-end">
+                    <img src="/assets/media/libros_images/libro2.png" class="img-cat rounded-3">
+                    <div class="add-cart rounded-circle position-absolute px-2 py-1 m-2 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-cart-plus fs-5"></i>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="m-0 p-0 fw-bolder">Project Hail Mary</p>
+                    <p class="m-0 p-0 opacity-75">Andy Weir</p>
+                    <p class="m-0 p-0 fw-semibold">15.99 €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="px-4 py-5 cont w-100 text-center">
+        <div class="bg-primary d-flex flex-column gap-3 justify-content-center align-items-center p-4 p-md-5 rounded-3 text-center">
+            <div class="text-white">
+                <h2 class="fw-bolder">Únete a nuestra comunidad de amantes de los libros</h2>
+                <p class="py-2">
+                    Suscríbete a nuestro boletín para recibir actualizaciones sobre nuevos lanzamientos y ofertas.
+                </p>
+            </div>
+            <form class="row g-3 w-100 justify-content-center">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <input type="email" class="form-control py-2" id="email" placeholder="nombre@gmail.com">
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <button class="btn btn-dark fw-bold py-2 w-100">Suscríbete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</section>

@@ -57,7 +57,6 @@ class LoginSerializer(serializers.ModelSerializer):
         refresh_token = RefreshToken.for_user(user)
         access_token = refresh_token.access_token
 
-
         return {
             'success': True,
             'message': f'Bienvenido {user.names}',

@@ -5,11 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/footer/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/footer/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles/_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoTemplate/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoTemplate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/models/info_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/info_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/user_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/serializers/login_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/login_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/serializers/register_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/register_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/views/login_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views/login_view.py" afterDir="false" />
@@ -20,6 +38,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,33 +67,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.DjangoTemplates.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.register_view.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/juan/Documentos/FullStack/DjangoTemplate/DjangoTemplate/settings.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.python.django.customization.DjangoModulesConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.DjangoTemplates.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.register_view.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/juan/Documentos/FullStack/DjangoTemplate/DjangoTemplate/settings.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.python.django.customization.DjangoModulesConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DjangoTemplates" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoTemplate" />
@@ -105,8 +127,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.127" />
-        <option value="bundled-python-sdk-3944b0c99280-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.127" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -121,7 +143,13 @@
       <workItem from="1770365079880" duration="141000" />
       <workItem from="1770365247453" duration="1599000" />
       <workItem from="1770366876358" duration="7730000" />
-      <workItem from="1770454744155" duration="12482000" />
+      <workItem from="1770454744155" duration="14365000" />
+      <workItem from="1770486672178" duration="1679000" />
+      <workItem from="1770542013162" duration="9798000" />
+      <workItem from="1770654460094" duration="9215000" />
+      <workItem from="1770736267306" duration="1156000" />
+      <workItem from="1770740293712" duration="612000" />
+      <workItem from="1770741166256" duration="12752000" />
     </task>
     <servers />
   </component>

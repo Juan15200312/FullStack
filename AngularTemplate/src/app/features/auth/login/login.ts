@@ -58,7 +58,7 @@ export class Login {
                 this.sessionStorageService.set('user', JSON.stringify(datos));
                 this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Bienvenido!', message: `Bienvenido otra vez ${user.names.split(' ').at(0)} a BookLy`, color: 'success'})
                 this.formLogin.reset()
-                this.router.navigate(['inicio'])
+                this.router.navigate(['dashboard'])
             }, error: error => {
                 const fullMessage = error.error.errors.join('\n');
                 this.alertService.notify({type: 'danger', icon: 'bi bi-x', title: '¡Error!', message: fullMessage, color: 'danger'});

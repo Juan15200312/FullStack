@@ -1,0 +1,23 @@
+.card-category {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+
+  &:hover {
+    .descrip{
+      opacity: 1;
+    }
+  }
+
+}
+
+.card-category:hover {
+  border: 2px solid var(--color-primary);
+}
+
+
+.descrip{
+  opacity: 0;
+}
+

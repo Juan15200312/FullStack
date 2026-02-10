@@ -48,8 +48,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return super().save(*args,**kwargs)
 
     class Meta:
-        verbose_name = 'Usuario'
-        verbose_name_plural = 'Usuarios'
         db_table = 'usuarios'
+        verbose_name = 'Usuario'
+        verbose_name_plural = '1. Usuarios'
 
 

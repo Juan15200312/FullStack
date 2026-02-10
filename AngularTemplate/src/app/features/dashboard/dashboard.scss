@@ -1,0 +1,83 @@
+.img-port {
+  width: 269px;
+  height: 403px;
+}
+
+.img-cat {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+}
+
+
+.deslis {
+  overflow-x: auto;
+  cursor: grab;
+  user-select: none;
+  display: flex; // Asegura el comportamiento de fila
+  flex-wrap: nowrap; // Evita que los botones bajen a otra fila
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  .card-cat {
+    white-space: nowrap; // La clave para evitar el salto de línea interno
+    flex-shrink: 0; // Evita que los botones se compriman
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.card-cat {
+  border: 1px solid var(--color-secondary);
+}
+
+.card-cat:hover {
+  border-color: var(--color-primary);
+  cursor: pointer;
+}
+
+
+.card-book {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    .add-cart {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    p:first-of-type {
+      color: var(--color-primary);
+    }
+
+
+    .img-cat {
+      filter: brightness(80%);
+    }
+  }
+}
+
+.add-cart {
+  background-color: white;
+  color: var(--color-primary);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Le da profundidad
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background-color: var(--color-primary);
+    transform: scale(1.1);
+  }
+}

@@ -18,7 +18,7 @@ class InfoUserModel(models.Model):
     class Meta:
         db_table = 'infoPersonal'
         verbose_name = 'Información Personal'
-        verbose_name_plural = 'Informaciones Personales'
+        verbose_name_plural = '2. Informaciones Personales'
 
 
     def __str__(self):

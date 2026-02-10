@@ -7,9 +7,32 @@ export const routes: Routes = [
         loadComponent: () => import('./features/auth/login/login').then((c) => c.Login)
     },
     {
-        path: 'inicio',
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full',
+    },
+    {
+        path: '',
         loadComponent: () => import('./layouts/main-layouts/main-layouts').then((c) => c.MainLayouts),
         canActivate: [authGuard],
+        children: [
+            {
+                path: 'dashboard',
+                loadComponent: () => import('./features/dashboard/dashboard').then((c) => c.Dashboard),
+
+            },
+            {
+                path: 'categories',
+                loadComponent: () => import('./features/categories/categories').then((c) => c.Categories),
+
+            },
+            {
+                path: 'wishlist',
+                loadComponent: () => import('./features/wishlist/wishlist').then((c) => c.Wishlist),
+
+            }
+        ],
+
     }
 
 
