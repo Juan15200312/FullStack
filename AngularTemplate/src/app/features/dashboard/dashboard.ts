@@ -1,16 +1,20 @@
 import {Component, inject, signal} from '@angular/core';
 import {CategoryResponse} from "../../core/interfaces/books/categoryResponse";
 import {CategoryService} from "../../core/services/books/category/category.service";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-dashboard',
-    imports: [],
+    imports: [
+        RouterLink
+    ],
     templateUrl: './dashboard.html',
     styleUrl: './dashboard.scss',
 })
 export class Dashboard {
     protected categories = signal<CategoryResponse[]>([])
     private categoryService = inject(CategoryService);
+    protected router = inject(Router);
 
     ngOnInit() {
         this.categoryService.get().subscribe({
@@ -24,5 +28,9 @@ export class Dashboard {
 
     }
 
+
+    redirect(){
+        this.router.navigate(['/categories'])
+    }
 
 }

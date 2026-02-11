@@ -1,23 +1,27 @@
 .card-category {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+  url("../../../../public/assets/media/libros_images/all.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  height: 200px;
 
   &:hover {
-    .descrip{
+    .descrip {
       opacity: 1;
     }
   }
 
 }
 
+
 .card-category:hover {
   border: 2px solid var(--color-primary);
 }
 
 
-.descrip{
+.descrip {
   opacity: 0;
 }
 

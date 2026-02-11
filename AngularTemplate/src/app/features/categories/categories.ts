@@ -1,10 +1,13 @@
 import {Component, inject, signal} from '@angular/core';
 import {CategoryResponse} from "../../core/interfaces/books/categoryResponse";
 import {CategoryService} from "../../core/services/books/category/category.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-categories',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './categories.html',
   styleUrl: './categories.scss',
 })
@@ -16,12 +19,10 @@ export class Categories {
     this.categoryService.get().subscribe({
       next: response => {
         this.categories.set(response);
-        console.log(response)
       }, error: error => {
         console.log(error);
       }
     })
-
   }
 
 }

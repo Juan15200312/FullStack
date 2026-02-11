@@ -1,5 +1,5 @@
 <section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="p-5 cont">
+    <div class="px-4 py-1 cont">
 
         <div class="pb-4">
             <h1 class="fw-bolder">Explorar por categoria</h1>
@@ -9,12 +9,27 @@
         </div>
 
         <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="card-category rounded-3 text-white p-2 pt-5 d-flex flex-column justify-content-end"
+                     routerLink = "/categories/all"
+                >
+                    <div class="">
+                        <h3 class="fw-bolder m-0 p-0">Todos</h3>
+                    </div>
 
+                    <div class="descrip d-flex  flex-row justify-content-between">
+                        <p class="m-0 p-0 fw-semibold">Novelas, historias cortas, clásicos</p>
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
             @for (categoria of categories(); track categoria.id) {
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card-category rounded-3 text-white p-2 pt-5 d-flex flex-column justify-content-end"
                                 [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), ' +
-                                                            'url('+ categoria.imagen +')'">
+                                                            'url('+ categoria.imagen +')'"
+                                routerLink = "/categories/{{categoria.slug}}"
+                    >
                         <div class="">
                             <h3 class="fw-bolder m-0 p-0">{{categoria.name}}</h3>
                         </div>

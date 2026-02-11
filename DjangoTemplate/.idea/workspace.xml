@@ -5,33 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/com.chrome.devtools.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_common.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_core.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_core.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser_animations.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/footer/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/footer/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/main-layouts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoTemplate/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/views/category_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/category_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoTemplate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/models/info_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/info_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/serializers/login_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/login_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/serializers/register_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/register_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/views/login_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views/login_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/views/register_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views/register_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +105,6 @@
         <env name="DJANGO_SETTINGS_MODULE" value="DjangoTemplate.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (PyCharmMiscProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -127,8 +125,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
-        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -150,6 +148,7 @@
       <workItem from="1770736267306" duration="1156000" />
       <workItem from="1770740293712" duration="612000" />
       <workItem from="1770741166256" duration="12752000" />
+      <workItem from="1770797495512" duration="7947000" />
     </task>
     <servers />
   </component>

@@ -27,10 +27,15 @@ export const routes: Routes = [
 
             },
             {
+                path: 'categories/:category',
+                loadComponent: () => import('./features/categories/category/category').then((c) => c.Category),
+            },
+            {
                 path: 'wishlist',
                 loadComponent: () => import('./features/wishlist/wishlist').then((c) => c.Wishlist),
 
-            }
+            },
+
         ],
 
     }

@@ -16,5 +16,4 @@ export class CategoryService {
     return this.http.get<any>(`${this.URL}/categories/`);
   }
 
-
 }
