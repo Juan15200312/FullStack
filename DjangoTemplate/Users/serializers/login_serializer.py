@@ -1,8 +1,6 @@
 from rest_framework import serializers
 import re
-
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from Users.models import CustomUser
 
 
@@ -32,12 +30,6 @@ class LoginSerializer(serializers.ModelSerializer):
         if len(password) < 8:
             raise serializers.ValidationError('Password no valida: minimo 8 caracteres')
 
-        # Al menos un carácter especial, una letra, un número y mínimo 8 caracteres
-        patron = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-
-        if re.match(patron, password):
-            raise serializers.ValidationError('Password no valido !')
-
         return password
 
 
@@ -56,6 +48,7 @@ class LoginSerializer(serializers.ModelSerializer):
 
         refresh_token = RefreshToken.for_user(user)
         access_token = refresh_token.access_token
+        info = getattr(user, 'info', None)
 
         return {
             'success': True,
@@ -64,7 +57,7 @@ class LoginSerializer(serializers.ModelSerializer):
                 'user': {
                     'names': user.names,
                     'email': user.email,
-                    'photo_perfil': user.info.photo_perfil.url,
+                    'photo_perfil': info.photo_perfil.url if info and info.photo_perfil else '',
                 },
                 'access_token': str(access_token),
                 'refresh_token': str(refresh_token)

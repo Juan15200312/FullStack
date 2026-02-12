@@ -20,6 +20,24 @@ html, body {
   box-sizing: border-box;
 }
 
+.inp-search {
+  border: 1px solid var(--color-secondary);
+  border-radius: 0.375rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.inp-search:focus-within {
+  box-shadow: 0 0 0 .25rem rgba(var(--color-primary-rgb), 0.25);
+}
+
+.inp-search input[type="search"] {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+
+
 .card, .btn, .table, .form-control, .navbar {
   transition: all 0.3s ease;
 }
@@ -31,19 +49,14 @@ html, body {
 .btn-black-white{
   color: black;
   background: white;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 0.375rem;
 }
+
 .btn-black-white:hover{
   color: white;
   background: black;
-}
-
-.btn-black-white{
-  color: black;
-  background: transparent;
-}
-.btn-black-white:hover{
-  color: var(--color-primary);
-  background: transparent;
 }
 
 .luz{

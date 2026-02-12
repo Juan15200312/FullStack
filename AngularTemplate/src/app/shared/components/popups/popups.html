@@ -2,10 +2,15 @@
     <section class="view-content" (click)="$event.stopPropagation()">
         <ng-content></ng-content>
 
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center gap-2">
             <button class="btn btn-{{type()}} text-white fw-semibold" (click)="cancelar()">
                 Aceptar
             </button>
+            @if (alertGuard()){
+                <button class="btn btn-success text-white fw-semibold" (click)="login()">
+                    Iniciar sesión
+                </button>
+            }
         </div>
     </section>
 </div>

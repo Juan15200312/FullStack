@@ -56,12 +56,26 @@ export class Login {
 
 
                 this.sessionStorageService.set('user', JSON.stringify(datos));
-                this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Bienvenido!', message: `Bienvenido otra vez ${user.names.split(' ').at(0)} a BookLy`, color: 'success'})
+                this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Bienvenido!', message: `Bienvenido otra vez ${user.names.split(' ').at(0)} a BookLy`, color: 'success', guard: false});
                 this.formLogin.reset()
                 this.router.navigate(['dashboard'])
             }, error: error => {
-                const fullMessage = error.error.errors.join('\n');
-                this.alertService.notify({type: 'danger', icon: 'bi bi-x', title: '¡Error!', message: fullMessage, color: 'danger'});
+                let message = 'Ha ocurrido un error inesperado.';
+                if (error.status === 0) {
+                    message = 'No se pudo conectar con el servidor. Verifica que esté encendido o tu conexión a internet';
+                }else if (error.status >= 500) {
+                    message = 'Error interno del servidor. Intentelo mas tarde';
+                }else if (error.error) {
+                    message = error.error.errors.join('\n');
+                }
+                this.alertService.notify({
+                    type: 'danger',
+                    icon: 'bi bi-x',
+                    title: '¡Error!',
+                    message: message,
+                    color: 'danger',
+                    guard: false
+                });
             }
         })
 

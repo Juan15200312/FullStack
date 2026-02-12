@@ -43,7 +43,7 @@ export class Register {
         const registerSend:RegisterSend = this.formRegister.value
         this.authService.register(registerSend).subscribe({
             next: response => {
-                this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Enhorabuena!', message: response.message, color: 'success'})
+                this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Enhorabuena!', message: response.message, color: 'success', guard: false});
                 this.formRegister.reset()
                 this.changePassword()
                 this.router.navigate(['auth'])
@@ -51,7 +51,7 @@ export class Register {
             }, error: error => {
                 console.log(error);
                 const fullMessage = error.error.errors.join('\n');
-                this.alertService.notify({type: 'danger', icon: 'bi bi-x', title: '¡Error!', message: fullMessage, color: 'danger'});
+                this.alertService.notify({type: 'danger', icon: 'bi bi-x', title: '¡Error!', message: fullMessage, color: 'danger', guard: false});
             }
         })
     }

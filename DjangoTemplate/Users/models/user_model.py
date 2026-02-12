@@ -26,6 +26,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     names = models.CharField(max_length=50, null=False, blank=False, verbose_name="Nombres")
     email = models.EmailField(max_length=255, unique=True, null=False, blank=False,verbose_name='Correo electrónico')
     slug = models.CharField(max_length=64, null=True, blank=True)
+    wishlist = models.ManyToManyField('Books.BookModel', related_name='wishlist')
 
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

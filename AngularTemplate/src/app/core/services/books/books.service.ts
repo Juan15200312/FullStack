@@ -12,7 +12,15 @@ export class BooksService {
     private http = inject(HttpClient)
 
 
-    get(category:any): Observable<BookResponse> {
+    get(category:any): Observable<any> {
         return this.http.get<any>(`${this.URL}/books/${category}/`);
+    }
+
+    getWishList(): Observable<any>{
+        return this.http.get<any>(`${this.URL}/wishlist/`);
+    }
+
+    deleteWishList(slug:string){
+        return this.http.delete<any>(`${this.URL}/wishlist/${slug}/`,);
     }
 }

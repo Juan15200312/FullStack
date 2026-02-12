@@ -1,4 +1,5 @@
-import {Component, HostListener, input, output} from '@angular/core';
+import {Component, HostListener, inject, input, output, signal} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-popups',
@@ -9,6 +10,8 @@ import {Component, HostListener, input, output} from '@angular/core';
 export class Popups {
   onClose = output<void>();
   type = input<string>('success');
+  alertGuard = input<boolean>(true);
+  router = inject(Router);
 
   @HostListener('document:keydown.escape')
   handleEscapeKey() {
@@ -17,5 +20,10 @@ export class Popups {
 
   cancelar() {
     this.onClose.emit();
+  }
+
+  login(){
+    this.cancelar()
+    this.router.navigate(['/auth']);
   }
 }

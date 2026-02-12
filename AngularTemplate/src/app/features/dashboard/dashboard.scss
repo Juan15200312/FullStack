@@ -12,10 +12,9 @@
 
 .deslis {
   overflow-x: auto;
-  cursor: grab;
   user-select: none;
-  display: flex; // Asegura el comportamiento de fila
-  flex-wrap: nowrap; // Evita que los botones bajen a otra fila
+  display: flex;
+  flex-wrap: nowrap;
 
   &::-webkit-scrollbar {
     display: none;
@@ -25,8 +24,8 @@
   -ms-overflow-style: none;
 
   .card-cat {
-    white-space: nowrap; // La clave para evitar el salto de línea interno
-    flex-shrink: 0; // Evita que los botones se compriman
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   &:active {
@@ -68,7 +67,7 @@
 .add-cart {
   background-color: white;
   color: var(--color-primary);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Le da profundidad
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   opacity: 0;
   visibility: hidden;

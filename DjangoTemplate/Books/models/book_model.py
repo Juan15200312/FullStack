@@ -14,10 +14,10 @@ class BookModel(models.Model):
     description = models.TextField(null=False, blank=False)
     isbn = models.CharField(max_length=13, unique=True, null=False, blank=False)
     categories = models.ManyToManyField('CategoryModel', related_name='books')
-    authors = models.ManyToManyField('AuthorModel', related_name='books', blank=False, null=False)
+    authors = models.ManyToManyField('AuthorModel', related_name='books')
     year = models.PositiveIntegerField(null=False, blank=False)
     stock = models.PositiveIntegerField(null=False, blank=False, default=0)
-    price = models.PositiveIntegerField(null=False, blank=False, default=0)
+    price = models.FloatField(null=False, blank=False, default=0)
     image = models.ImageField(upload_to=pathImage, null=False, blank=False)
 
     is_book_of_the_month = models.BooleanField(default=False)

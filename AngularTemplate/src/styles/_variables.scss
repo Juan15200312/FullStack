@@ -4,7 +4,7 @@ $success: #06a80d;
 $danger: #cc1406;
 $warning: #f69406;
 $info:      #03A9F4;
-$light:     #f8f9fa;
+$light:     #6c757d;
 $dark:      #212121;
 
 $medical-teal: #009688;
@@ -19,6 +19,7 @@ $density: 0;
 
 :root {
   --color-primary:   #{$primary};
+  --color-primary-rgb: 129,40,241;
   --color-secondary: #{$secondary};
   --color-success:   #{$success};
   --color-danger:    #{$danger};

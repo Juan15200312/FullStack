@@ -5,32 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/com.chrome.devtools.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_common.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_platform-browser_animations.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/@angular_router.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/_metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/_metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/.angular/cache/20.3.14/TemplateAngular/vite/deps_ssr/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0002_bookmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0003_categorymodel_is_active.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0004_categorymodel_icon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0005_categorymodel_color.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/migrations/0006_categorymodel_description_categorymodel_imagen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/models/book_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/models/book_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/serializers/book_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/book_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/serializers/category_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/category_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Books/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Books/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/category_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/category_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoTemplate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/views/book_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/book_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/migrations/0002_alter_customuser_options_alter_infousermodel_options_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/user_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/serializers/login_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/login_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +29,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" module-name="DjangoTemplate" is-module-sdk="true">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+    <option name="myUseModuleSdk" value="true" />
+    <option name="myModuleName" value="DjangoTemplate" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,6 +44,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Juan15200312&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Juan15200312/FullStack.git&quot;,
+    &quot;accountId&quot;: &quot;2ccdf156-9e7e-4df2-9ca3-b336c15552ed&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -83,17 +88,25 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/juan/Documentos/FullStack/DjangoTemplate/DjangoTemplate/settings.py&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/juanj/PycharmProjects/FullStack/DjangoTemplate&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.python.django.customization.DjangoModulesConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="DjangoTemplate" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="DjangoTemplate" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="DjangoTemplates" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoTemplate" />
@@ -105,6 +118,7 @@
         <env name="DJANGO_SETTINGS_MODULE" value="DjangoTemplate.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -125,8 +139,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
-        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -149,11 +163,26 @@
       <workItem from="1770740293712" duration="612000" />
       <workItem from="1770741166256" duration="12752000" />
       <workItem from="1770797495512" duration="7947000" />
+      <workItem from="1770829933905" duration="116000" />
+      <workItem from="1770830437807" duration="11440000" />
+      <workItem from="1770881561346" duration="2196000" />
+      <workItem from="1770883874488" duration="28958000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DjangoTemplate$register_view.coverage" NAME="register_view Coverage Results" MODIFIED="1770373428616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Users/views" />

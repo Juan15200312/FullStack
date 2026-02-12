@@ -7,7 +7,7 @@ import {AlertConfig} from "../../interfaces/popups/alertConfig";
 export class AlertService {
   show = signal(false);
   config = signal<AlertConfig>({
-    type: 'success', icon: 'bi bi-check', title: '¡Exito!', message: 'Bienvenido otra vez a BookLy', color: 'success'
+    type: 'success', icon: 'bi bi-check', title: '¡Exito!', message: 'Bienvenido otra vez a BookLy', color: 'success', guard: false
   })
 
   notify(config: AlertConfig) {

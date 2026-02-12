@@ -21,5 +21,8 @@ export class AuthService {
   }
 
 
+  refreshToken(refresh_token:string){
+    return this.http.post<any>(`${this.URL}/token/refresh/`, {refresh : refresh_token})
+  }
 
 }

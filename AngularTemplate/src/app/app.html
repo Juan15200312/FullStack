@@ -2,7 +2,7 @@
 
 
 @if (alertService.show()) {
-    <app-popups (onClose)="alertService.close()" [type]="alertConfig().type">
+    <app-popups (onClose)="alertService.close()" [type]="alertConfig().type" [alertGuard]="alertConfig().guard">
         <app-alert
                 [title]="alertConfig().title"
                 [icon]="alertConfig().icon"

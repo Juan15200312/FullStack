@@ -1,10 +1,14 @@
-from django.conf import settings
-from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from Books.views import CategoryView, BookView
+from Books.views import CategoryView, BookView, WishlistView
+
+router = routers.DefaultRouter()
+router.register('', WishlistView, basename='wishlist')
+
 
 urlpatterns = [
     path('categories/', CategoryView.as_view(), name='categories'),
     path('books/<str:category>/', BookView.as_view(), name='books'),
+    path('wishlist/', include(router.urls)),
 ]

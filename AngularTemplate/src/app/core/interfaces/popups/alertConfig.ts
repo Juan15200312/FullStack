@@ -4,4 +4,5 @@ export interface AlertConfig {
     title: string,
     message: string,
     color: string,
+    guard: boolean,
 }

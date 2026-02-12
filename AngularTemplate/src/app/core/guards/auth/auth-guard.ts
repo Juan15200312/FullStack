@@ -16,13 +16,13 @@ export const authGuard: CanActivateFn = (route, state) => {
     }
 
     alertService.notify({
-        type: 'warning',
-        icon: 'bi bi-exclamation',
-        title: 'Sesión expirada',
-        message: 'Debes iniciar sesión para acceder a esta sección.',
-        color: 'warning'
+        type: 'danger',
+        icon: 'fa-solid fa-user-lock',
+        title: 'Acceso denegado',
+        message: 'Necesita iniciar sesion para acceder a esta sección.',
+        color: 'danger',
+        guard: true
     })
-    router.navigate(['auth']);
 
     return false;
 };

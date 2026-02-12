@@ -14,7 +14,6 @@ export const routes: Routes = [
     {
         path: '',
         loadComponent: () => import('./layouts/main-layouts/main-layouts').then((c) => c.MainLayouts),
-        canActivate: [authGuard],
         children: [
             {
                 path: 'dashboard',
@@ -33,8 +32,18 @@ export const routes: Routes = [
             {
                 path: 'wishlist',
                 loadComponent: () => import('./features/wishlist/wishlist').then((c) => c.Wishlist),
-
+                canActivate: [authGuard],
             },
+            {
+                path: 'library',
+                loadComponent: () => import('./features/library/library').then((c) => c.Library),
+                canActivate: [authGuard],
+            },
+            {
+                path: 'cart',
+                loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
+
+            }
 
         ],
 
