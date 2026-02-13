@@ -1,0 +1,68 @@
+<section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="px-4 py-1 cont w-100">
+
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <h1 class="m-0 p-0 fw-bold">Tu carrito de compras <span class="text-light">(3 items)</span></h1>
+            </div>
+
+
+            <div class="col-12 col-md-6 d-flex gap-2 align-items-center justify-content-md-end">
+                <div class="fw-semibold d-flex c-pointer gap-1"
+                     routerLink="/cart"
+                     routerLinkActive #rla1="routerLinkActive"
+                     [routerLinkActiveOptions]="{exact: true}"
+                >
+                    <div class="rounded-circle"
+                         [ngClass]="rla1.isActive ? 'bg-primary': 'border border-light'"
+                    >
+                        <p class="m-0 px-2"
+                           [ngClass]="rla1.isActive ? 'text-white' : 'text-light'"
+                        >1</p>
+                    </div>
+                    <p class="m-0 p-0"
+                       [ngClass]="rla1.isActive ? 'text-primary' : 'text-light'"
+                    >Carrito</p>
+                </div>
+                <span>------</span>
+                <div class="fw-semibold d-flex c-pointer gap-1"
+                     routerLink="/cart/shipping"
+                     routerLinkActive #rla2="routerLinkActive"
+                     [routerLinkActiveOptions]="{exact: false}"
+                >
+                    <div class="rounded-circle"
+                         [ngClass]="rla2.isActive ? 'bg-primary': 'border border-light'"
+                    >
+                        <p class="m-0 px-2"
+                           [ngClass]="rla2.isActive ? 'text-white' : 'text-light'"
+                        >2</p>
+                    </div>
+                    <p class="m-0 p-0"
+                       [ngClass]="rla2.isActive ? 'text-primary' : 'text-light'"
+                    >Envio</p>
+                </div>
+                <span>------</span>
+                <div class="fw-semibold d-flex c-pointer gap-1"
+                     routerLink="/cart/payment"
+                     routerLinkActive #rla3="routerLinkActive"
+                     [routerLinkActiveOptions]="{exact: false}"
+                >
+                    <div class="rounded-circle"
+                         [ngClass]="rla3.isActive ? 'bg-primary': 'border border-light'"
+                    >
+                        <p class="m-0 px-2"
+                           [ngClass]="rla3.isActive ? 'text-white' : 'text-light'"
+                        >3</p>
+                    </div>
+                    <p class="m-0 p-0"
+                       [ngClass]="rla3.isActive ? 'text-primary' : 'text-light'"
+                    >Pago</p>
+                </div>
+
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
+
+    </div>
+</section>

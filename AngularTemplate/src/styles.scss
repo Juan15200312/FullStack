@@ -20,6 +20,17 @@ html, body {
   box-sizing: border-box;
 }
 
+.btn_delete{
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.btn_delete:hover{
+  color: var(--color-danger);
+  background-color: rgba(204,20,6, 0.10);
+  border-color: var(--color-danger);
+}
+
 .inp-search {
   border: 1px solid var(--color-secondary);
   border-radius: 0.375rem;

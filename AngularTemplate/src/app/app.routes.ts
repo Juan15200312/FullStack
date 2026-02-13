@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {authGuard} from "./core/guards/auth/auth-guard";
 
 export const routes: Routes = [
@@ -7,9 +7,9 @@ export const routes: Routes = [
         loadComponent: () => import('./features/auth/login/login').then((c) => c.Login)
     },
     {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
     },
     {
         path: '',
@@ -41,8 +41,21 @@ export const routes: Routes = [
             },
             {
                 path: 'cart',
-                loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
-
+                loadComponent: () => import('./layouts/cart-layout/cart-layout').then((c) => c.CartLayout),
+                children: [
+                    {
+                        path: '',
+                        loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
+                    },
+                    {
+                        path: 'shipping',
+                        loadComponent: () => import('./features/shipping/shipping').then((c) => c.Shipping),
+                    },
+                    {
+                        path: 'payment',
+                        loadComponent: () => import('./features/payment/payment').then((c) => c.Payment),
+                    }
+                ]
             }
 
         ],

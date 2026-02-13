@@ -1,1 +1,42 @@
-<p>cart works!</p>
+<div class="row g-3">
+    <div class="col-12 col-lg-7">
+        <div class="row bg-white rounded-3 mt-4">
+            @for (item of cartService.cart(); track item.id) {
+                <div class="col-12 col-md-8 d-flex gap-3 p-3">
+                    <img src="/assets/media/libros_images/libro2.png" class="img-fluid rounded-3 img-card">
+                    <div class="fw-semibold d-flex flex-column align-items-start justify-content-between">
+                        <div>
+                            <p class="m-0 p-0">The Great Gatsby</p>
+                            <p class="m-0 p-0 text-light">F. Scott Fitzgerald</p>
+                        </div>
+                        <button class="btn btn_delete text-danger">
+                            <i class="fa-solid fa-trash-can"></i>
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 d-flex flex-md-column align-items-end justify-content-between p-3">
+                    <div>
+                        <p class="m-0 p-0 fw-semibold">15.99 €</p>
+                    </div>
+                    <div class="d-flex bg-secondary rounded-3 gap-3 align-items-center px-2 py-1">
+                        <button class="btn btn-black-white px-2 py-1">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <span class="fw-bold"> 1 </span>
+                        <button class="btn btn-black-white px-2 py-1">
+                            <i class="fa-solid fa-angle-up"></i>
+                        </button>
+                    </div>
+                </div>
+            } @empty {
+                <p>s</p>
+            }
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-5">
+        <p>sss</p>
+    </div>
+</div>

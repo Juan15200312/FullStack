@@ -11,8 +11,8 @@ class WishlistView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = BookSerializer
     lookup_field = 'slug'
+    http_method_names = ['get', 'delete']
 
     def get_queryset(self, *args, **kwargs):
         user = self.request.user
         return user.wishlist.all()
-

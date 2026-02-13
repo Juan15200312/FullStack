@@ -6,22 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0002_bookmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0003_categorymodel_is_active.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0004_categorymodel_icon.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0005_categorymodel_color.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/migrations/0006_categorymodel_description_categorymodel_imagen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/models/book_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/models/book_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/serializers/book_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/book_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/serializers/category_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/category_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/book_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/book_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0002_alter_customuser_options_alter_infousermodel_options_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/serializers/login_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/login_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/views/wishlist_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/wishlist_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,34 +56,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.DjangoTemplates.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.register_view.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/juanj/PycharmProjects/FullStack/DjangoTemplate&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.DjangoTemplates.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.register_view.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/A/FullStack/DjangoTemplate",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.python",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="DjangoTemplate" is-module-sdk="true">
@@ -139,8 +124,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
-        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -167,6 +152,7 @@
       <workItem from="1770830437807" duration="11440000" />
       <workItem from="1770881561346" duration="2196000" />
       <workItem from="1770883874488" duration="28958000" />
+      <workItem from="1770970337933" duration="4798000" />
     </task>
     <servers />
   </component>

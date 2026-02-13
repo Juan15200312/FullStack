@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {Alert} from "./shared/components/popups/alert/alert";
 import {Popups} from "./shared/components/popups/popups";
 import {AlertService} from "./core/services/alerts/alert-service";
+import {CartService} from "./core/services/cart/cart-service";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class App {
 
   protected alertService = inject(AlertService)
   protected alertConfig = this.alertService.config
+
 
 
 }
