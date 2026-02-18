@@ -1,13 +1,13 @@
 import {Component, inject, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {Alert} from "./shared/components/popups/alert/alert";
-import {Popups} from "./shared/components/popups/popups";
 import {AlertService} from "./core/services/alerts/alert-service";
-import {CartService} from "./core/services/cart/cart-service";
+import {MessageService} from "./core/services/messages/message-service";
+import {Messages} from "./shared/components/popups/messages/messages";
 
 @Component({
   selector: 'app-root',
-    imports: [RouterOutlet, Alert, Popups],
+  imports: [RouterOutlet, Alert, Messages],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -17,6 +17,8 @@ export class App {
   protected alertService = inject(AlertService)
   protected alertConfig = this.alertService.config
 
+  protected messageService = inject(MessageService)
+  protected messageConfig = this.messageService.config
 
 
 }

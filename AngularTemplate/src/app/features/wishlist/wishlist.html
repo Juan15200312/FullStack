@@ -15,17 +15,17 @@
             </div>
         </div>
 
-        <div class="inp-search  w-75 rounded-3 px-3 py-2 bg-white d-flex align-items-center gap-3 mt-3">
+        <div class="inp-search  w-75 rounded-3 px-3 py-2 bg-white d-flex align-items-center gap-3 mt-4">
             <span class="border-0"><i class="bi bi-search"></i></span>
             <input type="search" class="w-100 bg-transparent" placeholder="Busca por titulo o autor...">
         </div>
 
 
-        <div class="row pt-3 g-4">
+        <div class="row pt-5 g-4">
 
             @for (book of wishlist(); track book.id) {
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-white d-flex flex-column gap-2 rounded-3 p-3">
+                    <div class="bg-white-shadow d-flex flex-column gap-2 rounded-3 p-3">
                         <div class="d-flex flex-column position-relative" [ngClass]="book.stock ? '':'opacity-50'">
                             <img src="{{book.image}}" class="img-fluid m-card rounded-3">
                             @if (book.stock > 5) {
@@ -50,7 +50,10 @@
                         </div>
 
                         <div class="d-flex gap-1 justify-content-between">
-                            <button class="btn btn-primary" [disabled]="!book.stock">
+                            <button class="btn btn-primary"
+                                    [disabled]="!book.stock"
+                                    (click)="cartService.add(book, true)"
+                            >
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Agregar
                             </button>

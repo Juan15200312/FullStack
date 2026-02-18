@@ -20,6 +20,11 @@ html, body {
   box-sizing: border-box;
 }
 
+.bg-white-shadow{
+  background-color: white;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+
 .btn_delete{
   color: var(--color-secondary);
   border-color: var(--color-secondary);
@@ -47,7 +52,16 @@ html, body {
   background: transparent;
 }
 
+.inp-search input[type="text"] {
+  border: none;
+  outline: none;
+  background: transparent;
+}
 
+
+.box{
+  font-size: 100px;
+}
 
 .card, .btn, .table, .form-control, .navbar {
   transition: all 0.3s ease;

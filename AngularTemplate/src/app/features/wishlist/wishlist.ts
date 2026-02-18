@@ -2,6 +2,7 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {BookResponse} from "../../core/interfaces/books/bookResponse";
 import {BooksService} from "../../core/services/books/books.service";
 import {NgClass} from "@angular/common";
+import {CartService} from "../../core/services/cart/cart-service";
 
 @Component({
     selector: 'app-wishlist',
@@ -14,6 +15,7 @@ import {NgClass} from "@angular/common";
 export class Wishlist implements OnInit {
     protected wishlist = signal<BookResponse[]>([])
     private bookService = inject(BooksService)
+    protected cartService = inject(CartService)
 
     ngOnInit() {
         this.loadData()

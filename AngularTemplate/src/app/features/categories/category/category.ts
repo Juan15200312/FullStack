@@ -3,6 +3,7 @@ import {BookResponse} from "../../../core/interfaces/books/bookResponse";
 import {BooksService} from "../../../core/services/books/books.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgClass} from "@angular/common";
+import {CartService} from "../../../core/services/cart/cart-service";
 
 @Component({
   selector: 'app-category',
@@ -18,6 +19,7 @@ export class Category {
   protected countBooks = signal<number|null>(null)
   private bookService = inject(BooksService)
   private route = inject(ActivatedRoute)
+  protected cartService = inject(CartService)
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

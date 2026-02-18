@@ -2,52 +2,66 @@
     <div class="px-4 py-1 cont w-100">
 
         <div class="row g-4">
-            <div class="col-12 col-md-6">
-                <h1 class="m-0 p-0 fw-bold">Tu carrito de compras <span class="text-light">(3 items)</span></h1>
+            <div class="col-12 col-lg-6">
+                <h1 class="m-0 p-0 fw-bold">Tu carrito de compras
+                    @if (cartService.countItems() > 0){
+                        <span class="text-light">({{cartService.countItems()}} libros)</span>
+                    }
+                </h1>
             </div>
 
 
-            <div class="col-12 col-md-6 d-flex gap-2 align-items-center justify-content-md-end">
-                <div class="fw-semibold d-flex c-pointer gap-1"
+            <div class="col-12 col-lg-6 d-flex gap-2 align-items-center justify-content-lg-end">
+                <button class="fw-semibold d-flex align-items-center justify-content-center c-pointer gap-1 border-0 bg-transparent m-0 p-0"
                      routerLink="/cart"
                      routerLinkActive #rla1="routerLinkActive"
                      [routerLinkActiveOptions]="{exact: true}"
                 >
-                    <div class="rounded-circle"
-                         [ngClass]="rla1.isActive ? 'bg-primary': 'border border-light'"
+                    <div class="rounded-circle d-flex align-items-center justify-content-center p-1"
+                         [ngClass]="rla1.isActive ? 'bg-primary': rla2.isActive || rla3.isActive ? 'bg-success':'border border-light'"
                     >
-                        <p class="m-0 px-2"
-                           [ngClass]="rla1.isActive ? 'text-white' : 'text-light'"
-                        >1</p>
+                        @if (rla2.isActive || rla3.isActive){
+                            <i class="fa-solid fa-check text-white p-1"></i>
+                        } @else {
+                            <p class="m-0 px-2"
+                               [ngClass]="rla1.isActive ? 'text-white'  : 'text-light'"
+                            >1</p>
+                        }
                     </div>
                     <p class="m-0 p-0"
-                       [ngClass]="rla1.isActive ? 'text-primary' : 'text-light'"
+                       [ngClass]="rla1.isActive ? 'text-primary': rla2.isActive || rla3.isActive ? 'text-success' :'text-light'"
                     >Carrito</p>
-                </div>
-                <span>------</span>
-                <div class="fw-semibold d-flex c-pointer gap-1"
+                </button>
+                <span>-----</span>
+                <button class="fw-semibold d-flex align-items-center justify-content-center gap-1 border-0 bg-transparent m-0 p-0"
+                        [disabled]="rla1.isActive"
                      routerLink="/cart/shipping"
                      routerLinkActive #rla2="routerLinkActive"
                      [routerLinkActiveOptions]="{exact: false}"
                 >
-                    <div class="rounded-circle"
-                         [ngClass]="rla2.isActive ? 'bg-primary': 'border border-light'"
+                    <div class="rounded-circle d-flex align-items-center justify-content-center p-1"
+                         [ngClass]="rla2.isActive ? 'bg-primary': rla3.isActive ? 'bg-success' : 'border border-light'"
                     >
-                        <p class="m-0 px-2"
-                           [ngClass]="rla2.isActive ? 'text-white' : 'text-light'"
-                        >2</p>
+                        @if (rla3.isActive){
+                            <i class="fa-solid fa-check text-white p-1"></i>
+                        } @else {
+                            <p class="m-0 px-2"
+                               [ngClass]="rla2.isActive ? 'text-white'  : 'text-light'"
+                            >2</p>
+                        }
                     </div>
                     <p class="m-0 p-0"
                        [ngClass]="rla2.isActive ? 'text-primary' : 'text-light'"
                     >Envio</p>
-                </div>
-                <span>------</span>
-                <div class="fw-semibold d-flex c-pointer gap-1"
+                </button>
+                <span>-----</span>
+                <button class="fw-semibold d-flex align-items-center justify-content-center gap-1 border-0 bg-transparent m-0 p-0"
+                        [disabled]="rla1.isActive || rla2.isActive"
                      routerLink="/cart/payment"
                      routerLinkActive #rla3="routerLinkActive"
                      [routerLinkActiveOptions]="{exact: false}"
                 >
-                    <div class="rounded-circle"
+                    <div class="rounded-circle d-flex align-items-center justify-content-center p-1"
                          [ngClass]="rla3.isActive ? 'bg-primary': 'border border-light'"
                     >
                         <p class="m-0 px-2"
@@ -57,7 +71,7 @@
                     <p class="m-0 p-0"
                        [ngClass]="rla3.isActive ? 'text-primary' : 'text-light'"
                     >Pago</p>
-                </div>
+                </button>
 
             </div>
         </div>

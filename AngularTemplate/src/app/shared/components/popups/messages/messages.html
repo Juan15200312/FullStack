@@ -1,0 +1,8 @@
+<div class="modal-backdrop" (click)="cancelar()">
+    <section class="view-content bg-white-shadow rounded-3" (click)="$event.stopPropagation()">
+        <i class="{{icon()}} fs-3 text-{{color()}}"></i>
+        <span class="fw-semibold fs-5">{{message()}}</span>
+    </section>
+</div>
+
+

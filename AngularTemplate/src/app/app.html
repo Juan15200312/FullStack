@@ -2,12 +2,20 @@
 
 
 @if (alertService.show()) {
-    <app-popups (onClose)="alertService.close()" [type]="alertConfig().type" [alertGuard]="alertConfig().guard">
-        <app-alert
-                [title]="alertConfig().title"
-                [icon]="alertConfig().icon"
-                [message]="alertConfig().message"
-                [color]="alertConfig().color">
-        </app-alert>
-    </app-popups>
+    <app-alert (onClose)="alertService.close()" [type]="alertConfig().type" [alertGuard]="alertConfig().guard"
+               [title]="alertConfig().title"
+               [icon]="alertConfig().icon"
+               [message]="alertConfig().message"
+               [color]="alertConfig().color">
+    </app-alert>
+}
+
+@if (messageService.show()){
+    <app-messages (onClose)="messageService.close()"
+               [icon]="messageConfig().icon"
+               [color] = 'messageConfig().color'
+               [message]="messageConfig().message"
+               [view] = "messageConfig().view"
+    >
+    </app-messages>
 }

@@ -1,7 +1,7 @@
 <section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
     <div class="px-4 py-1 cont w-100">
         @if (nameCategory()) {
-            <div class="row px-2 py-2 g-3 bg-white rounded-3 mb-5">
+            <div class="row px-2 py-2 g-3 bg-white-shadow rounded-3 mb-5">
                 <div class="col-12 col-md-6">
                     <h3 class="m-0 p-0">Resultados para <span class="text-primary">'{{ nameCategory() }}'</span></h3>
                     <p class="m-0 p-0 opacity-75">Mostrando 1-5 de {{ countBooks() }} resultados</p>
@@ -17,14 +17,14 @@
                 </div>
             </div>
         } @else {
-            <div class="row px-2 py-2 g-3 bg-white rounded-3 mb-5">
+            <div class="row px-2 py-2 g-3 bg-white-shadow rounded-3 mb-5">
                 <h3>Categoria invalida</h3>
             </div>
         }
 
 
         @for (book of books(); track book.id) {
-            <div class="row px-2 pb-4 g-4 bg-white rounded-3 mb-5 book-card "
+            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5 book-card "
                  [ngClass]="book.stock ? '':'opacity-50'"
             >
                 <div class="col-12 col-lg-2 position-relative d-flex justify-content-center">
@@ -73,7 +73,7 @@
                             </div>
                         }
 
-                        <button class="btn btn-primary" [disabled]="!book.stock">
+                        <button class="btn btn-primary" [disabled]="!book.stock" (click)="cartService.add(book, true)">
                             <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
                         </button>
 
@@ -81,7 +81,7 @@
                 </div>
             </div>
         } @empty {
-            <div class="row px-2 pb-4 g-4 bg-white rounded-3 mb-5 book-card book-vacio">
+            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5 book-card book-vacio">
                 <div class="d-flex flex-column opacity-25 gap-3 align-items-center justify-content-center">
                     <h3>No hay libros disponibles en esta categoria</h3>
                     <i class="fa-solid fa-box-open box"></i>

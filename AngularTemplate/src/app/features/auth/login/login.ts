@@ -29,6 +29,7 @@ export class Login {
     private cookieService:AuthCookieService = inject(AuthCookieService);
     private alertService = inject(AlertService);
     private router= inject(Router);
+
     formLogin: FormGroup = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
