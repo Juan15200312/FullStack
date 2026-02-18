@@ -5,31 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/cart/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/cart/cart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/cart/cart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/cart-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/cart-layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/cart-layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/cart-layout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/popups.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/popups.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/popups.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/popups.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +159,7 @@
       <workItem from="1771257319308" duration="375000" />
       <workItem from="1771257712660" duration="112000" />
       <workItem from="1771257832630" duration="8620000" />
-      <workItem from="1771408127099" duration="12760000" />
+      <workItem from="1771408127099" duration="15355000" />
     </task>
     <servers />
   </component>

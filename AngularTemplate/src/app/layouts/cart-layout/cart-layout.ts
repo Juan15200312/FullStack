@@ -19,5 +19,9 @@ export class CartLayout {
     private router = inject(Router);
 
 
+    url(){
+        return this.router.url.includes('shipping') || this.router.url.includes('payment')
+    }
+
 
 }

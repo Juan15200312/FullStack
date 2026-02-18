@@ -16,5 +16,4 @@ export class Cart {
   protected cartService = inject(CartService)
 
 
-  protected readonly btoa = btoa;
 }

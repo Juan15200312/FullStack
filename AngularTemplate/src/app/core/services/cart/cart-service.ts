@@ -12,6 +12,7 @@ export class CartService {
     private messageService = inject(MessageService);
 
     public cart = signal<cartInterface[]>(this.loadCart())
+    public delivery = signal<number>(5)
 
     private storageEffect = effect(() => {
         this.local.set('cart', JSON.stringify(this.cart()));
@@ -106,15 +107,12 @@ export class CartService {
         return this.cart().reduce((ac, item) => ac + item.count*item.price, 0);
     }
 
-    envio(){
-        return 5;
-    }
 
     iva(){
         return this.subtotal()*0.04
     }
 
     total(){
-        return this.subtotal() + this.envio() + this.iva()
+        return this.subtotal() + this.delivery() + this.iva()
     }
 }

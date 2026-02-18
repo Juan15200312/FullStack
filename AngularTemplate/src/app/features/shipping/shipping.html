@@ -1,1 +1,202 @@
-<p>shipping works!</p>
+<div class="row g-3">
+    @if (cartService.countItems() > 0) {
+        <div class="col-12 col-lg-7">
+            <div class="bg-white-shadow rounded-3 mt-4 p-4">
+                <div class="d-flex gap-3">
+                    <i class="fa-regular fa-truck fs-2 text-primary"></i>
+                    <h3 class="m-0 p-0 fw-bolder">Información de envío</h3>
+                </div>
+
+                <form class="mt-4" [formGroup]="formDeliveryInfo" (ngSubmit)="verifyShipping()">
+
+                    <div class="mb-3">
+                        <label for="names" class="form-label fw-semibold">Nombres completos</label>
+                        <input type="text" class="form-control" id="names" placeholder="ej: Juan Ortiz Olivares"
+                               formControlName="names"
+                               [ngClass]="isFieldInvalid('names') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('names')) {
+                            <div class="text-danger mt-2">
+                                @if (formDeliveryInfo.get('names')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="street-address" class="form-label fw-semibold">Dirección de la calle</label>
+                        <input type="text" class="form-control" id="street-address" autocomplete="street-address"
+                               placeholder="ej: Av. Zoco 12, Portal 2, Piso 1 D"
+                               formControlName="street_address"
+                               [ngClass]="isFieldInvalid('street_address') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('street_address')) {
+                            <div class="text-danger mt-2">
+                                @if (formDeliveryInfo.get('street_address')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="city" class="form-label fw-semibold">Ciudad</label>
+                            <input type="text" class="form-control" id="city" placeholder="ej: Madrid"
+                                   formControlName="city"
+                                   [ngClass]="isFieldInvalid('city') ? 'is-invalid': ''"
+                            >
+                            @if (isFieldInvalid('city')) {
+                                <div class="text-danger mt-2">
+                                    @if (formDeliveryInfo.get('city')?.errors?.['required']) {
+                                        <span>Se requiere de este campo.</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="zip-code" class="form-label fw-semibold">Código postal</label>
+                            <input type="number" class="form-control" id="zip-code" placeholder="ej: 28343"
+                                   formControlName="zip_code"
+                                   [ngClass]="isFieldInvalid('zip_code') ? 'is-invalid': ''"
+                            >
+                            @if (isFieldInvalid('zip_code')) {
+                                <div class="text-danger mt-2">
+                                    @if (formDeliveryInfo.get('zip_code')?.errors?.['required']) {
+                                        <span>Se requiere de este campo.</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label fw-semibold">Número de teléfono</label>
+                        <input type="text" class="form-control" id="phone" placeholder="ej: +34 653448067"
+                               formControlName="phone"
+                               [ngClass]="isFieldInvalid('phone') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('phone')) {
+                            <div class="text-danger mt-2">
+                                @if (formDeliveryInfo.get('phone')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+
+            <div class="bg-white-shadow rounded-3 mt-4 p-4">
+                <div class="d-flex gap-3">
+                    <i class="fa-regular fa-clock fs-2 text-primary"></i>
+                    <h3 class="m-0 p-0 fw-bolder">Método de envió</h3>
+                </div>
+
+                <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10  rounded-3 border  border-2"
+                     [ngClass]="optionDelivery == 'delivery1' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('delivery1')"
+                >
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="delivery" id="delivery1"
+                               [checked]="optionDelivery == 'delivery1'">
+                    </div>
+
+                    <div class="d-flex flex-column w-100">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="fw-semibold">Entrega estándar</span>
+                            <span class="fw-semibold">5.00 €</span>
+                        </div>
+                        <div>
+                            <span class="text-light">Llegada estimada: 3-5 días laborables</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10 rounded-3 border border-2"
+                     [ngClass]="optionDelivery == 'delivery2' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('delivery2')"
+                >
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="delivery" id="delivery2"
+                               [checked]="optionDelivery == 'delivery2'">
+                    </div>
+
+                    <div class="d-flex flex-column w-100">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="fw-semibold">Entrega rápida</span>
+                            <span class="fw-semibold">10.00 €</span>
+                        </div>
+                        <div>
+                            <span class="text-light">Llegada estimada: 1 día laborable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-lg-5 p-0 ps-lg-5">
+            <div class="bg-white-shadow rounded-3 mt-4 p-4">
+                <div>
+                    <h3 class="fw-bold">Resumen del pedido</h3>
+                </div>
+
+                <div class="mt-4 d-flex flex-column gap-2">
+                    <div class="d-flex justify-content-between">
+                        <p class="m-0 p-0 text-light">Subtotal ({{ cartService.countItems() }} artículos)</p>
+                        <p class="m-0 p-0 fw-bold">{{ cartService.subtotal().toFixed(2) }} €</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="m-0 p-0 text-light">Envío estimado</p>
+                        <p class="m-0 p-0 fw-bold">{{ cartService.delivery().toFixed(2) }} €</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="m-0 p-0 text-light">IVA (4%)</p>
+                        <p class="m-0 p-0 fw-bold">{{ cartService.iva().toFixed(2) }} €</p>
+                    </div>
+                </div>
+
+                <div class="inp-search d-flex justify-content-between p-2 mt-4">
+                    <input type="text" class="w-75" placeholder="Código de promoción">
+                    <button class="btn btn-primary w-25">Aplicar</button>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4 align-items-center">
+                    <p class="m-0 p-0 fw-semibold">Total</p>
+                    <p class="m-0 p-0 fw-bold fs-4">{{ cartService.total().toFixed(2) }} €</p>
+                </div>
+
+                <button class="btn btn-primary w-100 mt-4 fw-bold py-2"
+                        [disabled]="cartService.countItems()<=0 || formDeliveryInfo.invalid"
+                        routerLink="/cart/payment"
+                >
+                    Continuar con el pago
+                    <i class="fa-solid fa-arrow-right ps-3"></i>
+                </button>
+
+                <div class="mt-5 d-flex flex-column gap-2">
+                    <div class="d-flex gap-2 align-items-center justify-content-center">
+                        <i class="fa-solid fa-shield-halved text-success"></i>
+                        <span class="text-light fw-semibold">Pago seguro</span>
+                    </div>
+
+                    <div class="d-flex gap-3 text-light fs-4 justify-content-center">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-stripe"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    } @else {
+        <div class="bg-white-shadow rounded-3 mt-5 p-5 text-secondary d-flex flex-column gap-3 justify-content-center align-items-center">
+            <h3 class="m-0 p-0">No hay libros en el carrito</h3>
+            <i class="fa-solid fa-box-open box"></i>
+        </div>
+    }
+</div>

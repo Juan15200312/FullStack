@@ -3,11 +3,15 @@
 
         <div class="row g-4">
             <div class="col-12 col-lg-6">
-                <h1 class="m-0 p-0 fw-bold">Tu carrito de compras
-                    @if (cartService.countItems() > 0){
-                        <span class="text-light">({{cartService.countItems()}} libros)</span>
-                    }
-                </h1>
+                @if (!url()){
+                    <h1 class="m-0 p-0 fw-bold">Tu carrito de compras
+                        @if (cartService.countItems() > 0){
+                            <span class="text-light">({{cartService.countItems()}} libros)</span>
+                        }
+                    </h1>
+                } @else {
+                    <h1 class="m-0 p-0 fw-bold">Verificación</h1>
+                }
             </div>
 
 
