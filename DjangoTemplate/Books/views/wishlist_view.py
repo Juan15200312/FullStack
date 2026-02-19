@@ -16,3 +16,18 @@ class WishlistView(viewsets.ModelViewSet):
     def get_queryset(self, *args, **kwargs):
         user = self.request.user
         return user.wishlist.all()
+
+    def destroy(self, *args, **kwargs):
+        user = self.request.user
+        slug = self.kwargs.get('slug')
+
+        book = self.get_queryset().filter(slug=slug).first()
+
+        if not book:
+            return Response({'message': 'No se encontró el libro en su wishlist'},
+                        status=status.HTTP_204_NO_CONTENT)
+
+        user.wishlist.remove(book)
+        return Response({'message': 'Libro eliminado de su wishlist'},
+                        status=status.HTTP_204_NO_CONTENT)
+

@@ -1,2 +1,3 @@
 from .category_serializer import CategorySerializer
 from .book_serializer import BookSerializer
+from .cupon_serializer import CuponSerializer

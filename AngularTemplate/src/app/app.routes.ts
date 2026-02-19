@@ -46,14 +46,24 @@ export const routes: Routes = [
                     {
                         path: '',
                         loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
+                        data: {url: 'cart'},
+
                     },
                     {
                         path: 'shipping',
                         loadComponent: () => import('./features/shipping/shipping').then((c) => c.Shipping),
+                        data: {url: 'shipping'},
                     },
                     {
                         path: 'payment',
                         loadComponent: () => import('./features/payment/payment').then((c) => c.Payment),
+                        data: {url: 'payment'},
+                    },
+                    {
+                        path: 'message-payment',
+                        loadComponent: () => import('./features/message-payment/message-payment').then((c) => c.MessagePayment),
+
+
                     }
                 ]
             }

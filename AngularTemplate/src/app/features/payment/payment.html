@@ -1,1 +1,150 @@
-<p>payment works!</p>
+<div class="row g-3">
+    @if (cartService.countItems() > 0) {
+        <div class="col-12 col-lg-7">
+            <div class="bg-white-shadow rounded-3 mt-4 p-4">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-3">
+                        <i class="fa-regular fa-credit-card fs-2 text-primary"></i>
+                        <h3 class="m-0 p-0 fw-bolder">Método de pago</h3>
+                    </div>
+
+                    <div class="d-flex gap-2 align-items-center text-light">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Transacción segura</span>
+                    </div>
+                </div>
+
+                <div class="d-flex mt-4 gap-3 w-100">
+                    <div class="d-flex c-pointer card-payment flex-column rounded-3 gap-1 border border-2 justify-content-center align-items-center bg-opacity-10"
+                         [ngClass]="typePayment=='credit-card' ? 'bg-primary border-primary text-primary' : 'border-secondary text-light'"
+                         (click)="changeTypePayment('credit-card')"
+                    >
+                        <div class="d-flex gap-2 fs-3">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                        </div>
+                        <p class="m-0 p-0 fw-semibold text-center">Tarjeta de debito</p>
+                    </div>
+
+                    <div class="d-flex c-pointer card-payment flex-column rounded-3 gap-1 border border-2 justify-content-center align-items-center bg-opacity-10"
+                         [ngClass]="typePayment=='paypal' ? 'bg-primary border-primary text-primary' : 'border-secondary text-light'"
+                         (click)="changeTypePayment('paypal')"
+                    >
+                        <div class="d-flex gap-2 fs-3">
+                            <i class="fa-brands fa-paypal"></i>
+                        </div>
+                        <p class="m-0 p-0 fw-semibold">Paypal</p>
+                    </div>
+                    <div class="d-flex c-pointer card-payment flex-column rounded-3 gap-1 border border-2 justify-content-center align-items-center bg-opacity-10"
+                         [ngClass]="typePayment=='stripe' ? 'bg-primary border-primary text-primary' : 'border-secondary text-light'"
+                         (click)="changeTypePayment('stripe')"
+                    >
+                        <div class="d-flex gap-2 fs-3">
+                            <i class="fa-brands fa-cc-stripe"></i>
+                        </div>
+                        <p class="m-0 p-0 fw-semibold">Stripe</p>
+                    </div>
+                </div>
+
+                <form class="mt-4" [formGroup]="formPayment">
+                    <div class="mb-3">
+                        <label for="names" class="form-label fw-semibold">Nombres completos</label>
+                        <input type="text" class="form-control" id="names" autocomplete="cc-name"
+                               placeholder="ej: Juan Ortiz Olivares"
+                               formControlName="names"
+                               [ngClass]="isFieldInvalid('names') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('names')) {
+                            <div class="text-danger mt-2">
+                                @if (formPayment.get('names')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="card-number" class="form-label fw-semibold">Numero de la tarjeta</label>
+                        <input type="text" class="form-control" id="card-number" autocomplete="cc-number"
+                               (input)="formatCardNumber($event)"
+                               placeholder="0000 0000 0000 0000"
+                               formControlName="card_number"
+                               [ngClass]="isFieldInvalid('card_number') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('card_number')) {
+                            <div class="text-danger mt-2">
+                                @if (formPayment.get('card_number')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                                @if (formPayment.get('card_number')?.errors?.['minlength'] ||
+                                formPayment.get('card_number')?.errors?.['maxlength']) {
+                                    <span>Numero de tarjeta invalido: Se necesitan de 16 dígitos</span>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="exp" class="form-label fw-semibold">Fecha de caducidad</label>
+                            <input type="text" class="form-control" autocomplete="cc-exp" id="exp" placeholder="MM / YY"
+                                   formControlName="exp"
+                                   [ngClass]="isFieldInvalid('exp') ? 'is-invalid': ''"
+                                   (input)="formatExpiryDate($event)"
+                            >
+                            @if (isFieldInvalid('exp')) {
+                                <div class="text-danger mt-2">
+                                    @if (formPayment.get('exp')?.errors?.['required']) {
+                                        <span>Se requiere de este campo.</span>
+                                    }
+                                    @if (formPayment.get('exp')?.errors?.['minlength'] ||
+                                    formPayment.get('exp')?.errors?.['maxlength']) {
+                                        <span>Fecha invalida: ej-> 02/35</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="cvv" class="form-label fw-semibold">Código de seguridad</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="CVV"
+                                   formControlName="cvv"
+                                   [ngClass]="isFieldInvalid('cvv') ? 'is-invalid': ''"
+                                   (input)="formatCVV($event)"
+                            >
+                            @if (isFieldInvalid('cvv')) {
+                                <div class="text-danger mt-2">
+                                    @if (formPayment.get('cvv')?.errors?.['required']) {
+                                        <span>Se requiere de este campo.</span>
+                                    }
+                                    @if (formPayment.get('cvv')?.errors?.['minlength'] ||
+                                    formPayment.get('cvv')?.errors?.['maxlength']) {
+                                        <span>CVV invalida: Se necesitan de 3 dígitos</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+                <div class="form-check mt-4">
+                    <input class="form-check-input" type="checkbox" value="" id="checkChecked" checked>
+                    <label class="form-check-label" for="checkChecked">Guardar datos para una próxima compra</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-lg-5 p-0 ps-lg-5">
+            <app-order-summary [formPayment]="formPayment"
+                (onSubmitPayment)="verifyPayment()"
+            >
+
+            </app-order-summary>
+        </div>
+    } @else {
+        <div class="bg-white-shadow rounded-3 mt-5 p-5 text-secondary d-flex flex-column gap-3 justify-content-center align-items-center">
+            <h3 class="m-0 p-0">No hay libros en el carrito</h3>
+            <i class="fa-solid fa-box-open box"></i>
+        </div>
+    }
+</div>

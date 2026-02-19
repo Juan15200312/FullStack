@@ -21,7 +21,11 @@
 
                     <div class="col-12 col-md-4 d-flex flex-md-column align-items-end justify-content-between p-3">
                         <div>
-                            <p class="m-0 p-0 fw-semibold">{{item.price}} €</p>
+                            <p class="m-0 p-0 fw-semibold text-md-end">{{(item.price*item.count).toFixed(2)}} €
+                                @if (item.count>1){
+                                    <p class="m-0 p-0 text-light">{{item.price.toFixed(2)}} € c/u</p>
+                                }
+                            </p>
                         </div>
                         @if (item.count >= item.book.stock) {
                             <div class="m-0 p-0 d-flex  align-self-md-end align-self-center">
@@ -49,59 +53,7 @@
         </div>
 
         <div class="col-12 col-lg-5 p-0 ps-lg-5">
-            <div class="bg-white-shadow rounded-3 mt-4 p-4">
-                <div>
-                    <h3 class="fw-bold">Resumen del pedido</h3>
-                </div>
-
-                <div class="mt-4 d-flex flex-column gap-2">
-                    <div class="d-flex justify-content-between">
-                        <p class="m-0 p-0 text-light">Subtotal ({{cartService.countItems()}} artículos)</p>
-                        <p class="m-0 p-0 fw-bold">{{cartService.subtotal().toFixed(2)}} €</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p class="m-0 p-0 text-light">Envío estimado</p>
-                        <p class="m-0 p-0 fw-bold">{{cartService.delivery().toFixed(2)}} €</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p class="m-0 p-0 text-light">IVA (4%)</p>
-                        <p class="m-0 p-0 fw-bold">{{cartService.iva().toFixed(2)}} €</p>
-                    </div>
-                </div>
-
-                <div class="inp-search d-flex justify-content-between p-2 mt-4">
-                    <input type="text" class="w-75" placeholder="Código de promoción">
-                    <button class="btn btn-primary w-25">Aplicar</button>
-                </div>
-
-                <div class="d-flex justify-content-between mt-4 align-items-center">
-                    <p class="m-0 p-0 fw-semibold">Total</p>
-                    <p class="m-0 p-0 fw-bold fs-4">{{cartService.total().toFixed(2)}} €</p>
-                </div>
-
-                <button class="btn btn-primary w-100 mt-4 fw-bold py-2"
-                    [disabled]="cartService.countItems()<=0"
-                    routerLink="/cart/shipping"
-                >
-                    Proceder al pago
-                    <i class="fa-solid fa-arrow-right ps-3"></i>
-                </button>
-
-                <div class="mt-5 d-flex flex-column gap-2">
-                    <div class="d-flex gap-2 align-items-center justify-content-center">
-                        <i class="fa-solid fa-shield-halved text-success"></i>
-                        <span class="text-light fw-semibold">Pago seguro</span>
-                    </div>
-
-                    <div class="d-flex gap-3 text-light fs-4 justify-content-center">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-stripe"></i>
-                        <i class="fa-brands fa-cc-paypal"></i>
-                    </div>
-                </div>
-
-            </div>
+            <app-order-summary></app-order-summary>
         </div>
     } @else {
         <div class="bg-white-shadow rounded-3 mt-5 p-5 text-secondary d-flex flex-column gap-3 justify-content-center align-items-center">

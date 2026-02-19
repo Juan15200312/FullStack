@@ -1,15 +1,16 @@
 import {Component, inject} from '@angular/core';
-import {RouterLink} from "@angular/router";
 import {CartService} from "../../core/services/cart/cart-service";
 import {NgClass} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {OrderSummary} from "../../layouts/cart-layout/order-summary/order-summary";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-shipping',
     imports: [
-        RouterLink,
         NgClass,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        OrderSummary
     ],
     templateUrl: './shipping.html',
     styleUrl: './shipping.scss',
@@ -18,6 +19,7 @@ export class Shipping {
     protected cartService = inject(CartService)
     protected optionDelivery= 'delivery1';
     private formBuilder = inject(FormBuilder);
+    private router = inject(Router);
 
     protected formDeliveryInfo:FormGroup = this.formBuilder.group({
         names: ['', Validators.required],
@@ -43,5 +45,6 @@ export class Shipping {
 
     verifyShipping(){
         console.log('paso la verificacion')
+        this.router.navigate(['cart/payment']);
     }
 }
