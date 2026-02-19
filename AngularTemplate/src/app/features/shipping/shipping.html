@@ -58,7 +58,7 @@
 
                         <div class="col-12 col-md-6 mb-3">
                             <label for="zip-code" class="form-label fw-semibold">Código postal</label>
-                            <input type="number" class="form-control" id="zip-code" placeholder="ej: 28343"
+                            <input type="text" class="form-control" id="zip-code" placeholder="ej: 28343"
                                    formControlName="zip_code"
                                    [ngClass]="isFieldInvalid('zip_code') ? 'is-invalid': ''"
                             >
@@ -70,6 +70,24 @@
                                 </div>
                             }
                         </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                        <input type="text" class="form-control" id="email" placeholder="ej: user@ejemplo.com"
+                               formControlName="email"
+                               [ngClass]="isFieldInvalid('email') ? 'is-invalid': ''"
+                        >
+                        @if (isFieldInvalid('email')) {
+                            <div class="text-danger mt-2">
+                                @if (formDeliveryInfo.get('email')?.errors?.['required']) {
+                                    <span>Se requiere de este campo.</span>
+                                }
+                                @if (formDeliveryInfo.get('email')?.errors?.['email']) {
+                                    <span>Correo electrónico invalido.</span>
+                                }
+                            </div>
+                        }
                     </div>
 
                     <div class="mb-3">
@@ -87,6 +105,11 @@
                         }
                     </div>
                 </form>
+
+                <div class="form-check mt-4">
+                    <input class="form-check-input" type="checkbox" value="" id="checkChecked" checked>
+                    <label class="form-check-label" for="checkChecked">Guardar datos para una próxima compra</label>
+                </div>
             </div>
 
             <div class="bg-white-shadow rounded-3 mt-4 p-4">
@@ -96,12 +119,12 @@
                 </div>
 
                 <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10  rounded-3 border  border-2"
-                     [ngClass]="optionDelivery == 'delivery1' ? 'bg-primary border-primary': 'border-secondary'"
-                     (click)="changeDelivery('delivery1')"
+                     [ngClass]="optionDelivery == 'standard' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('standard')"
                 >
                     <div class="form-check d-flex align-items-center">
                         <input class="form-check-input" type="radio" name="delivery" id="delivery1"
-                               [checked]="optionDelivery == 'delivery1'">
+                               [checked]="optionDelivery == 'standard'">
                     </div>
 
                     <div class="d-flex flex-column w-100">
@@ -116,12 +139,12 @@
                 </div>
 
                 <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10 rounded-3 border border-2"
-                     [ngClass]="optionDelivery == 'delivery2' ? 'bg-primary border-primary': 'border-secondary'"
-                     (click)="changeDelivery('delivery2')"
+                     [ngClass]="optionDelivery == 'express' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('express')"
                 >
                     <div class="form-check d-flex align-items-center">
                         <input class="form-check-input" type="radio" name="delivery" id="delivery2"
-                               [checked]="optionDelivery == 'delivery2'">
+                               [checked]="optionDelivery == 'express'">
                     </div>
 
                     <div class="d-flex flex-column w-100">

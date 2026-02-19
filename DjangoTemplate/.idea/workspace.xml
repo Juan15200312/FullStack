@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cupon/cupon-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cupon/cupon-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/admin/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/wishlist_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/wishlist_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/models/cupon_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/models/cupon_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/serializers/cupon_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/cupon_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Books/views/cupon_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/cupon_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +92,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -110,7 +116,6 @@
         <env name="DJANGO_SETTINGS_MODULE" value="DjangoTemplate.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.14" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -131,8 +136,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
-        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -166,6 +171,8 @@
       <workItem from="1771408127099" duration="15355000" />
       <workItem from="1771489072663" duration="258000" />
       <workItem from="1771489494083" duration="7084000" />
+      <workItem from="1771511776868" duration="15144000" />
+      <workItem from="1771535148242" duration="22000" />
     </task>
     <servers />
   </component>

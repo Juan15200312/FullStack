@@ -4,6 +4,8 @@ import {CartService} from "../../core/services/cart/cart-service";
 import {NgClass} from "@angular/common";
 import {OrderSummary} from "../../layouts/cart-layout/order-summary/order-summary";
 import {Router} from "@angular/router";
+import {CheckoutService} from "../../core/services/checkout/checkout-service";
+import {PaymentSend} from "../../core/interfaces/checkout/paymentSend";
 
 @Component({
     selector: 'app-payment',
@@ -17,9 +19,10 @@ import {Router} from "@angular/router";
 })
 export class Payment {
     protected cartService = inject(CartService)
-    protected typePayment = 'credit-card'
+    protected typePayment:string = 'debit-card'
     protected fb = inject(FormBuilder)
     private router = inject(Router)
+    private checkoutService = inject(CheckoutService)
 
     protected formPayment = this.fb.group({
         names: ['', Validators.required],
@@ -36,10 +39,15 @@ export class Payment {
 
     changeTypePayment = (payment:string) => {
         this.typePayment = payment;
+        this.cartService.method.set(this.typePayment);
     }
 
     verifyPayment() {
         console.log('paso la verificacion')
+        const payment: PaymentSend = <PaymentSend>{method: this.cartService.method(), ...this.formPayment.value}
+        this.checkoutService.paymentSend.set(payment)
+        const pedidoParaEnviar = this.checkoutService.finalOrder();
+        console.log(pedidoParaEnviar);
         this.router.navigate(['cart/message-payment']);
     }
 

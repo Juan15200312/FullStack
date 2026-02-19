@@ -1,6 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root',
@@ -8,11 +9,11 @@ import {HttpClient} from "@angular/common/http";
 export class CuponService {
 
   private URL = environment.url;
-  private httpClient = inject(HttpClient);
+  private http = inject(HttpClient);
 
 
-  post(code:string){
-    this.httpClient.post<any>(`${this.URL}/cupon/`, {code: code})
+  post(code:any){
+    return this.http.post<any>(`${this.URL}/cupon/`, {code: code})
   }
 
 

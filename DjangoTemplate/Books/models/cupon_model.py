@@ -5,7 +5,7 @@ from django.db import models
 
 
 class CuponModel(models.Model):
-    code = models.CharField(blank=False, null=False, verbose_name='Código de promoción')
+    code = models.CharField(max_length=100, blank=False, null=False, verbose_name='Código de promoción')
     valid_from = models.DateTimeField(blank=False, null=False, verbose_name='Valido desde')
     valid_to = models.DateTimeField(blank=False, null=False, verbose_name='Valido hasta')
 
@@ -23,9 +23,5 @@ class CuponModel(models.Model):
     def __str__(self):
         return self.code
 
-    @property
-    def is_valid(self):
-        now = datetime.datetime.now()
-        return True if (now <= self.valid_to and now>=self.valid_from) else False
 
 

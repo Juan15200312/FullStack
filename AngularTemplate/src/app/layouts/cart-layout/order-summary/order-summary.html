@@ -16,12 +16,31 @@
             <p class="m-0 p-0 text-light">IVA (4%)</p>
             <p class="m-0 p-0 fw-bold">{{ cartService.iva().toFixed(2) }} €</p>
         </div>
+
+        @if (cartService.cupon().id>0) {
+            <div class="d-flex justify-content-between text-success">
+                <p class="m-0 p-0">Descuento ({{cartService.cupon().code}} - {{cartService.cupon().discount}}%)</p>
+                <p class="m-0 p-0 fw-bold">{{cartService.discount().toFixed(2)}}€</p>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button class="btn btn_delete text-danger p-0 m-0 border-0" (click)="deleteCupon()">
+                    Eliminar cupon
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </div>
+        }
     </div>
 
-    <div class="inp-search d-flex justify-content-between p-2 mt-4">
-        <input type="text" class="w-75" placeholder="Código de promoción">
-        <button class="btn btn-primary w-25">Aplicar</button>
-    </div>
+    @if (cartService.cupon().id<0) {
+        <form class="inp-search d-flex justify-content-between p-2 mt-4" [formGroup]="formCupon">
+            <input type="text" class="w-75" placeholder="Código de promoción"
+                   formControlName="code"
+            >
+            <button class="btn btn-primary w-25" [disabled]="formCupon.invalid" (click)="validateCupon()">Aplicar
+            </button>
+        </form>
+    }
 
     <div class="d-flex justify-content-between mt-4 align-items-center">
         <p class="m-0 p-0 fw-semibold">Total</p>
@@ -32,7 +51,7 @@
             [disabled]="cartService.countItems()<=0 || formPayment()?.invalid"
             (click)="verify()"
     >
-        Completar pago
+        {{ nameButton() }}
         <i class="fa-solid fa-arrow-right ps-3"></i>
     </button>
 

@@ -4,6 +4,8 @@ import {NgClass} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {OrderSummary} from "../../layouts/cart-layout/order-summary/order-summary";
 import {Router} from "@angular/router";
+import {CheckoutService} from "../../core/services/checkout/checkout-service";
+import {ShippingSend} from "../../core/interfaces/checkout/shippingSend";
 
 @Component({
     selector: 'app-shipping',
@@ -17,9 +19,10 @@ import {Router} from "@angular/router";
 })
 export class Shipping {
     protected cartService = inject(CartService)
-    protected optionDelivery= 'delivery1';
+    protected optionDelivery:string = 'standard';
     private formBuilder = inject(FormBuilder);
     private router = inject(Router);
+    private checkoutService = inject(CheckoutService)
 
     protected formDeliveryInfo:FormGroup = this.formBuilder.group({
         names: ['', Validators.required],
@@ -27,6 +30,7 @@ export class Shipping {
         city: ['', Validators.required],
         zip_code: ['', Validators.required],
         phone: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
     })
 
     isFieldInvalid(field: string): boolean {
@@ -36,7 +40,7 @@ export class Shipping {
 
     changeDelivery(delivery:string){
         this.optionDelivery= delivery;
-        if (delivery == 'delivery1'){
+        if (delivery == 'standard'){
             this.cartService.delivery.set(5)
         }else {
             this.cartService.delivery.set(10)
@@ -44,7 +48,9 @@ export class Shipping {
     }
 
     verifyShipping(){
-        console.log('paso la verificacion')
+        console.log('Paso la verificacion')
+        let shipping:ShippingSend = {delivery: this.cartService.delivery(), ...this.formDeliveryInfo.value}
+        this.checkoutService.shippingSend.set(shipping)
         this.router.navigate(['cart/payment']);
     }
 }

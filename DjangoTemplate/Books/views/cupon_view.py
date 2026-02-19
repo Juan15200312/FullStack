@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from Books.serializers import CuponSerializer
+from utils import order_errors
 
 
 class CuponView(GenericAPIView):
@@ -11,13 +12,12 @@ class CuponView(GenericAPIView):
     serializer_class = CuponSerializer
 
     def get_queryset(self):
-        return self.serializer_class.Meta.model.objects.all()
+        return self.serializer_class.Meta.model.objects.filter(is_active=True).all()
 
     def post(self,request ,*args, **kwargs):
-        code = request.data.get('code')
-        cupon = self.get_queryset().filter(code=code).first()
 
-        if not cupon:
-            return Response({'success': True}, status=status.HTTP_200_OK)
+        serializer = self.get_serializer(data=request.data)
 
-        return Response({'success': False}, status=status.HTTP_400_BAD_REQUEST)
+        if serializer.is_valid():
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        return Response(order_errors(serializer.errors), status=status.HTTP_400_BAD_REQUEST)

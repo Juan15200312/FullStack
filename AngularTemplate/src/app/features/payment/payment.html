@@ -16,7 +16,7 @@
 
                 <div class="d-flex mt-4 gap-3 w-100">
                     <div class="d-flex c-pointer card-payment flex-column rounded-3 gap-1 border border-2 justify-content-center align-items-center bg-opacity-10"
-                         [ngClass]="typePayment=='credit-card' ? 'bg-primary border-primary text-primary' : 'border-secondary text-light'"
+                         [ngClass]="typePayment=='debit-card' ? 'bg-primary border-primary text-primary' : 'border-secondary text-light'"
                          (click)="changeTypePayment('credit-card')"
                     >
                         <div class="d-flex gap-2 fs-3">

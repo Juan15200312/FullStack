@@ -1,18 +1,24 @@
-import {effect, inject, Injectable, signal} from '@angular/core';
+import {computed, effect, inject, Injectable, signal} from '@angular/core';
 import {AuthLocal} from "../localStorage/auth-local";
 import {BookResponse} from "../../interfaces/books/bookResponse";
 import {cartInterface} from "../../interfaces/cart/cartInterface";
 import {MessageService} from "../messages/message-service";
+import {CuponResponse} from "../../interfaces/books/cuponResponse";
+import {SessionStorageService} from "../sessionStorage/session-storage.service";
 
 @Injectable({
     providedIn: 'root',
 })
 export class CartService {
     private local = inject(AuthLocal)
+    private sessionStorage = inject(SessionStorageService)
     private messageService = inject(MessageService);
 
     public cart = signal<cartInterface[]>(this.loadCart())
     public delivery = signal<number>(5)
+    public method = signal<string>('debit-card')
+    public cupon = signal<CuponResponse>(this.loadCupon())
+
 
     private storageEffect = effect(() => {
         this.local.set('cart', JSON.stringify(this.cart()));
@@ -23,6 +29,20 @@ export class CartService {
             return JSON.parse(this.local.get('cart'));
         }
         return []
+    }
+
+
+
+    private sessionEffect = effect(() => {
+        this.sessionStorage.set('cupon', JSON.stringify(this.cupon()));
+    })
+
+    private loadCupon(){
+        if (this.sessionStorage.get('cupon')){
+            return JSON.parse(this.sessionStorage.get('cupon'));
+        }
+        let cuponVacio:CuponResponse = {id: -1, discount:0, code:''}
+        return cuponVacio
     }
 
 
@@ -99,20 +119,23 @@ export class CartService {
         })
     }
 
-    countItems() {
-        return this.cart().reduce((ac, item) => ac + item.count, 0);
-    }
+    public countItems = computed(() =>
+        this.cart().reduce((ac, item) => ac + item.count,0)
+    )
 
-    subtotal() {
-        return this.cart().reduce((ac, item) => ac + item.count*item.price, 0);
-    }
+    public subtotal= computed(() =>
+        this.cart().reduce((ac, item) => ac + item.count*item.price, 0)
+    )
 
+    public iva = computed(() =>
+        this.subtotal() * 0.04
+    )
 
-    iva(){
-        return this.subtotal()*0.04
-    }
+    public discount = computed(() =>
+        this.subtotal() * this.cupon()?.discount/100
+    );
 
-    total(){
-        return this.subtotal() + this.delivery() + this.iva()
-    }
+    public total = computed(() =>
+        this.cupon() ? this.subtotal() + this.delivery() + this.iva() - this.discount() : this.subtotal() + this.delivery() + this.iva()
+    )
 }
