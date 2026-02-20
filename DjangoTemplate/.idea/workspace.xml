@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cart/cart-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cupon/cupon-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/cupon/cupon-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/payment/payment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/shipping/shipping.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/cart-layout/order-summary/order-summary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/models/cupon_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/models/cupon_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/serializers/cupon_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/serializers/cupon_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/cupon_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/cupon_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoTemplate/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoTemplate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTemplate/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,8 +126,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
-        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -173,6 +163,7 @@
       <workItem from="1771489494083" duration="7084000" />
       <workItem from="1771511776868" duration="15144000" />
       <workItem from="1771535148242" duration="22000" />
+      <workItem from="1771576795679" duration="14376000" />
     </task>
     <servers />
   </component>

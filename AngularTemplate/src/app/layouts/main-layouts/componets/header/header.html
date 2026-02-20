@@ -3,8 +3,10 @@
 
         <div class="col-6 col-md-3 col-lg-2">
             <div class="d-flex align-items-center gap-2">
-                <img src="/assets/media/images/logo1.svg" class="img-fluid c-pointer" width="70" alt="Logo" routerLink = "/dashboard">
-                <img src="/assets/media/images/booksy1.svg" class="img-fluid c-pointer" width="110" routerLink = "/dashboard">
+                <img src="/assets/media/images/logo1.svg" class="img-fluid c-pointer" width="70" alt="Logo"
+                     routerLink="/dashboard">
+                <img src="/assets/media/images/booksy1.svg" class="img-fluid c-pointer" width="110"
+                     routerLink="/dashboard">
             </div>
         </div>
 
@@ -18,17 +20,31 @@
         <div class="col-6 col-md-4 col-lg-4">
             <div class="d-flex align-items-center justify-content-end gap-3">
                 <nav class="d-none d-lg-flex gap-3 border-end pe-4">
-                    <a routerLink="/categories" routerLinkActive="text-primary" class="luz text-decoration-none fw-semibold small">Categorías</a>
-                    <a routerLink="/wishlist" routerLinkActive="text-primary" class="luz text-decoration-none fw-semibold small">Mi lista</a>
-                    <a routerLink="/library" routerLinkActive="text-primary" class="luz text-decoration-none fw-semibold small">Biblioteca</a>
+                    <a routerLink="/categories" routerLinkActive="text-primary"
+                       class="luz text-decoration-none fw-semibold small">Categorías</a>
+                    <a routerLink="/wishlist" routerLinkActive="text-primary"
+                       class="luz text-decoration-none fw-semibold small">Mi lista</a>
+                    <a routerLink="/library" routerLinkActive="text-primary"
+                       class="luz text-decoration-none fw-semibold small">Biblioteca</a>
                 </nav>
 
-                <div class="d-flex gap-3">
-                    <div class="d-flex gap-3">
-                        <i class="luz bi bi-person-fill fs-5"></i>
-                        <i class="luz bi bi-cart4 fs-5" routerLink="/cart" routerLinkActive="text-primary"></i>
-                        <i class="luz d-lg-none bi bi-list fs-5 fs-5"></i>
+                <div class="d-flex gap-3 align-items-center">
+                    <i class="luz bi bi-person-fill fs-5"></i>
+
+                    <div class="position-relative d-inline-block">
+                        <i class="luz bi bi-cart4 fs-5"
+                           routerLink="/cart"
+                           routerLinkActive="text-primary"
+                           role="button">
+                        </i>
+                        @if (cartService.countItems()>0) {
+                            <span routerLink="/cart" class="c-pointer position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger countCart">
+                                {{cartService.countItems()}}
+                            </span>
+                        }
                     </div>
+
+                    <i class="luz d-lg-none bi bi-list fs-5"></i>
                 </div>
 
             </div>

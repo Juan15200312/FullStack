@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('Users.urls')),
     path('api/', include('Books.urls')),
+    path('api/', include('Checkout.urls')),
 
 
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

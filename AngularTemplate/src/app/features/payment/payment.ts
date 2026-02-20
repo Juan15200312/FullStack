@@ -46,9 +46,16 @@ export class Payment {
         console.log('paso la verificacion')
         const payment: PaymentSend = <PaymentSend>{method: this.cartService.method(), ...this.formPayment.value}
         this.checkoutService.paymentSend.set(payment)
+        console.log(this.checkoutService.finalOrder())
         const pedidoParaEnviar = this.checkoutService.finalOrder();
-        console.log(pedidoParaEnviar);
-        this.router.navigate(['cart/message-payment']);
+        this.checkoutService.post(pedidoParaEnviar).subscribe({
+            next: response => {
+                console.log(response)
+            }, error: error => {
+                console.log(error)
+            }
+        })
+
     }
 
 
