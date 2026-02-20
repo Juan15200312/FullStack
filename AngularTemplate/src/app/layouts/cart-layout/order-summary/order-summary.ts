@@ -69,8 +69,7 @@ export class OrderSummary {
     deleteCupon(){
         if (this.sessionStorage.get('cupon')){
             this.sessionStorage.remove('cupon')
-            let cuponVacio:CuponResponse = {id: -1, discount:0, code:''}
-            this.cartService.cupon.set(cuponVacio)
+            this.cartService.clearCupon()
         }
     }
 

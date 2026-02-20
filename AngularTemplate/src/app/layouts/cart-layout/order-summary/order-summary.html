@@ -17,7 +17,7 @@
             <p class="m-0 p-0 fw-bold">{{ cartService.iva().toFixed(2) }} €</p>
         </div>
 
-        @if (cartService.cupon().id>0) {
+        @if (cartService.cupon()) {
             <div class="d-flex justify-content-between text-success">
                 <p class="m-0 p-0">Descuento ({{cartService.cupon().code}} - {{cartService.cupon().discount}}%)</p>
                 <p class="m-0 p-0 fw-bold">{{cartService.discount().toFixed(2)}}€</p>
@@ -32,7 +32,7 @@
         }
     </div>
 
-    @if (cartService.cupon().id<0) {
+    @if (!cartService.cupon()) {
         <form class="inp-search d-flex justify-content-between p-2 mt-4" [formGroup]="formCupon">
             <input type="text" class="w-75" placeholder="Código de promoción"
                    formControlName="code"

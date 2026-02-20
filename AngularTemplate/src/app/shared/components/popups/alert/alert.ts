@@ -22,6 +22,7 @@ export class Alert {
     this.cancelar();
   }
 
+
   cancelar() {
     this.onClose.emit();
   }

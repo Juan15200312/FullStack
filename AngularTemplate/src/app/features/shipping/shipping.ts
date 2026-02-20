@@ -48,10 +48,8 @@ export class Shipping {
     }
 
     verifyShipping(){
-        console.log('Paso la verificacion')
         let shipping:ShippingSend = {delivery: this.cartService.delivery(), ...this.formDeliveryInfo.value}
-        console.log(shipping)
-        this.checkoutService.shippingSend.set(shipping)
+        this.checkoutService.shipping.set(shipping)
         this.router.navigate(['cart/payment']);
     }
 }

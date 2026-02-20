@@ -15,13 +15,18 @@ export class CartService {
     private messageService = inject(MessageService);
 
     public cart = signal<cartInterface[]>(this.loadCart())
-    public delivery = signal<number>(5)
+    public delivery = signal<number>(this.loadDelivery())
     public method = signal<string>('debit-card')
     public cupon = signal<CuponResponse>(this.loadCupon())
 
 
     private storageEffect = effect(() => {
         this.local.set('cart', JSON.stringify(this.cart()));
+    })
+
+    private sessionEffect = effect(() => {
+        this.sessionStorage.set('cupon', JSON.stringify(this.cupon()));
+        this.sessionStorage.set('delivery', JSON.stringify(this.delivery()));
     })
 
     private loadCart(){
@@ -31,20 +36,29 @@ export class CartService {
         return []
     }
 
-
-
-    private sessionEffect = effect(() => {
-        this.sessionStorage.set('cupon', JSON.stringify(this.cupon()));
-    })
+    private loadDelivery(){
+        if (this.sessionStorage.get('delivery')) {
+            return JSON.parse(this.sessionStorage.get('delivery'));
+        }
+        return 5
+    }
 
     private loadCupon(){
         if (this.sessionStorage.get('cupon')){
             return JSON.parse(this.sessionStorage.get('cupon'));
         }
-        let cuponVacio:CuponResponse = {id: -1, discount:0, code:''}
-        return cuponVacio
+        return null
     }
 
+    public clearCart(){
+        this.cart.set([])
+        this.clearCupon()
+        this.delivery.set(this.loadDelivery())
+    }
+
+    public clearCupon(){
+        this.cupon.set(this.loadCupon())
+    }
 
     add(book: BookResponse, view:boolean) {
         this.cart.update((currentCart) => {

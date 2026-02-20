@@ -6,6 +6,8 @@ import {OrderSummary} from "../../layouts/cart-layout/order-summary/order-summar
 import {Router} from "@angular/router";
 import {CheckoutService} from "../../core/services/checkout/checkout-service";
 import {PaymentSend} from "../../core/interfaces/checkout/paymentSend";
+import {SessionStorageService} from "../../core/services/sessionStorage/session-storage.service";
+import {AuthLocal} from "../../core/services/localStorage/auth-local";
 
 @Component({
     selector: 'app-payment',
@@ -23,6 +25,8 @@ export class Payment {
     protected fb = inject(FormBuilder)
     private router = inject(Router)
     private checkoutService = inject(CheckoutService)
+    private sessionStorage = inject(SessionStorageService)
+    private localStorage = inject(AuthLocal)
 
     protected formPayment = this.fb.group({
         names: ['', Validators.required],
@@ -43,14 +47,19 @@ export class Payment {
     }
 
     verifyPayment() {
-        console.log('paso la verificacion')
         const payment: PaymentSend = <PaymentSend>{method: this.cartService.method(), ...this.formPayment.value}
-        this.checkoutService.paymentSend.set(payment)
+        this.checkoutService.payment.set(payment)
         console.log(this.checkoutService.finalOrder())
-        const pedidoParaEnviar = this.checkoutService.finalOrder();
-        this.checkoutService.post(pedidoParaEnviar).subscribe({
+        this.checkoutService.post(this.checkoutService.finalOrder()).subscribe({
             next: response => {
                 console.log(response)
+                this.localStorage.remove('cart');
+                this.sessionStorage.remove('cupon');
+                this.sessionStorage.remove('shipping');
+                this.sessionStorage.remove('payment');
+                this.sessionStorage.remove('delivery');
+                this.checkoutService.clearCheckout()
+                this.router.navigate(['/cart/message-payment']);
             }, error: error => {
                 console.log(error)
             }
