@@ -13,11 +13,11 @@
 .book-card{
   min-height: 280px;
 
-
   &:hover{
     h3:first-of-type{
       color: var(--color-primary);
     }
+    border: 1px solid var(--color-primary);
 
   }
 }

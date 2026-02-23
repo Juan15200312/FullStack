@@ -24,11 +24,11 @@
 
 
         @for (book of books(); track book.id) {
-            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5 book-card "
-                 [ngClass]="book.stock ? '':'opacity-50'"
+            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5 book-card c-pointer"
+                routerLink="/books/{{book.slug}}"
             >
                 <div class="col-12 col-lg-2 position-relative d-flex justify-content-center">
-                    <img src="{{book.image}}" class="img-fluid rounded-3 img-book">
+                    <img src="{{book.image}}" class="img-fluid rounded-3 img-book" [ngClass]="book.stock ? '':'opacity-50'">
                     @if (!book.stock) {
                         <div class="bg-black align-self-center d-flex position-absolute rounded-3 px-2 py-1">
                             <span class="text-white fw-semibold">Agotado</span>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-12  col-lg-10 d-flex flex-column justify-content-between gap-3">
-                    <div class="row">
+                    <div class="row" [ngClass]="book.stock ? '':'opacity-50'">
                         <div class="col-12 col-md-6">
                             <h3 class="m-0 p-0">{{ book.title }}</h3>
                             <p class="m-0 p-0">de {{ book.authors.join() }}</p>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div [ngClass]="book.stock ? '':'opacity-50'">
                         <p>{{book.description}}
                         </p>
                     </div>
@@ -68,16 +68,21 @@
                             </div>
                         }
 
-                        <button class="btn btn-primary" [disabled]="!book.stock" (click)="cartService.add(book, true)">
-                            <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                        </button>
-
+                        <div class="d-flex gap-2">
+                            <button class="btn border btn-danger" (click)="$event.stopPropagation() ;addWishlist(book.slug)">
+                                <i class="fa-solid fa-heart text-white"></i>
+                            </button>
+                            <button class="btn btn-primary" [disabled]="!book.stock"
+                                    (click)="$event.stopPropagation();cartService.add(book, true)">
+                                <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         } @empty {
-            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5 book-card book-vacio">
-                <div class="d-flex flex-column opacity-25 gap-3 align-items-center justify-content-center">
+            <div class="row px-2 pb-4 g-4 bg-white-shadow rounded-3 mb-5  book-vacio">
+                <div class="d-flex flex-column opacity-25 gap-3 p-5 align-items-center justify-content-center">
                     <h3>No hay libros disponibles en esta categoria</h3>
                     <i class="fa-solid fa-box-open box"></i>
                 </div>

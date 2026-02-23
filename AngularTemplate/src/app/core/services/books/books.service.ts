@@ -13,7 +13,7 @@ export class BooksService {
 
 
     get(category:any): Observable<any> {
-        return this.http.get<any>(`${this.URL}/books/${category}/`);
+        return this.http.get<any>(`${this.URL}/books/category/${category}/`);
     }
 
     getWishList(): Observable<any>{
@@ -23,4 +23,13 @@ export class BooksService {
     deleteWishList(slug:string){
         return this.http.delete<any>(`${this.URL}/wishlist/${slug}/`,);
     }
+
+    addWishlist(slug:string){
+        return this.http.post<any>(`${this.URL}/wishlist/${slug}/`, {});
+    }
+
+    bookDetail(slug:any){
+        return this.http.get(`${this.URL}/books/${slug}/`);
+    }
+
 }

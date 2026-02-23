@@ -1,0 +1,19 @@
+.tamaño {
+  width: 90%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .tamaño {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tamaño {
+    width: 550px;
+  }
+}

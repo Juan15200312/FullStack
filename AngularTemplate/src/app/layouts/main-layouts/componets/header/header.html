@@ -1,11 +1,14 @@
 <header class="bg-white container-fluid p-3 border-bottom">
     <div class="row align-items-center g-2">
 
-        <div class="col-6 col-md-3 col-lg-2">
+        <div class="col-6 col-md-3 col-lg-2 ">
             <div class="d-flex align-items-center gap-2">
+                <i class="luz d-lg-none bi bi-list fs-5 align-self-md-start"
+                   (click)="changeSidebar()"
+                ></i>
                 <img src="/assets/media/images/logo1.svg" class="img-fluid c-pointer" width="70" alt="Logo"
                      routerLink="/dashboard">
-                <img src="/assets/media/images/booksy1.svg" class="img-fluid c-pointer" width="110"
+                <img src="/assets/media/images/booksy1.svg" class="d-none d-lg-inline img-fluid c-pointer" width="110"
                      routerLink="/dashboard">
             </div>
         </div>
@@ -43,8 +46,6 @@
                             </span>
                         }
                     </div>
-
-                    <i class="luz d-lg-none bi bi-list fs-5"></i>
                 </div>
 
             </div>
@@ -52,3 +53,8 @@
 
     </div>
 </header>
+
+
+@if (showSidebar()){
+    <app-sidebar (onClose)="showSidebar.set(false)"></app-sidebar>
+}

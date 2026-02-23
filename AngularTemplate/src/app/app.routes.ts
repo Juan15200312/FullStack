@@ -48,8 +48,6 @@ export const routes: Routes = [
                         path: '',
                         loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
                         data: {url: 'cart'},
-                        canActivate: [checkoutGuard],
-
                     },
                     {
                         path: 'shipping',
@@ -67,13 +65,21 @@ export const routes: Routes = [
                         path: 'message-payment',
                         loadComponent: () => import('./features/message-payment/message-payment').then((c) => c.MessagePayment),
 
-
                     }
                 ]
+            },
+            {
+                path: 'books/:slug',
+                loadComponent: () => import('./features/book-detail/book-detail').then((c) => c.BookDetail),
+
             }
 
         ],
 
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./features/page-not-found/page-not-found').then((c) => c.PageNotFound),
     }
 
 
