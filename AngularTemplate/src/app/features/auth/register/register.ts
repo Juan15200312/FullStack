@@ -2,9 +2,9 @@ import {Component, inject, output} from '@angular/core';
 import {NgClass} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../../core/services/auth/auth.service";
-import {AlertService} from "../../../core/services/alerts/alert-service";
 import {RegisterSend} from "../../../core/interfaces/auth/registerSend";
 import {Router} from "@angular/router";
+import {AlertQuestionService} from "../../../core/services/alerts-question/alert-question-service";
 
 @Component({
     selector: 'app-register',
@@ -20,8 +20,9 @@ export class Register {
     viewPassword: boolean = false;
     fb = inject(FormBuilder)
     private authService: AuthService = inject(AuthService);
-    private alertService: AlertService = inject(AlertService);
     private router: Router = inject(Router);
+    private alertQuestionService = inject(AlertQuestionService);
+
 
     formRegister: FormGroup = this.fb.group({
         names: ['', Validators.required],
@@ -43,15 +44,35 @@ export class Register {
         const registerSend:RegisterSend = this.formRegister.value
         this.authService.register(registerSend).subscribe({
             next: response => {
-                this.alertService.notify({type: 'success', icon: 'bi bi-check', title: '¡Enhorabuena!', message: response.message, color: 'success', guard: false});
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    response.message,
+                    '¡Enhorabuena!',
+                    'fa-solid fa-user-check',
+                    'success',
+                    'Iniciar Sesion',
+                )
                 this.formRegister.reset()
                 this.changePassword()
-                this.router.navigate(['auth'])
                 this.close()
+                this.router.navigate(['/auth'])
             }, error: error => {
                 console.log(error);
-                const fullMessage = error.error.errors.join('\n');
-                this.alertService.notify({type: 'danger', icon: 'bi bi-x', title: '¡Error!', message: fullMessage, color: 'danger', guard: false});
+                const fullMessage = error.error.errors[0];
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    fullMessage,
+                    '¡Ocurrio un error!',
+                    'fa-solid fa-xmark',
+                    'danger',
+                    'Entendido',
+                )
             }
         })
     }

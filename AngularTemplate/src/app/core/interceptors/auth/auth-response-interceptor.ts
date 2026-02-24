@@ -4,14 +4,14 @@ import {inject} from "@angular/core";
 import {AuthCookieService} from "../../services/cookies/auth-cookie.service";
 import {SessionStorageService} from "../../services/sessionStorage/session-storage.service";
 import {Router} from "@angular/router";
-import {AlertService} from "../../services/alerts/alert-service";
 import {AuthService} from "../../services/auth/auth.service";
+import {AlertQuestionService} from "../../services/alerts-question/alert-question-service";
 
 export const authResponseInterceptor: HttpInterceptorFn = (req, next) => {
     const cookieService = inject(AuthCookieService)
     const sessionStorageService = inject(SessionStorageService)
     const router = inject(Router);
-    const alertService = inject(AlertService);
+    const alertQuestionService = inject(AlertQuestionService);
     const authService = inject(AuthService)
 
     return next(req).pipe(
@@ -20,14 +20,19 @@ export const authResponseInterceptor: HttpInterceptorFn = (req, next) => {
                 if (req.url.includes('/token/refresh/')) {
                     cookieService.removeAll();
                     sessionStorageService.removeAll();
-                    alertService.notify({
-                        type: 'danger',
-                        icon: 'fa-solid fa-hourglass-end',
-                        title: 'Sesion expirada',
-                        message: 'Su sesion ha expirado, vuelva a iniciar sesion',
-                        color: 'danger',
-                        guard: false
-                    });
+
+                    alertQuestionService.notify(
+                        () => {
+                            alertQuestionService.close()
+                        },
+                        false,
+                        'Su sesion ha expirado, vuelva a iniciar sesion',
+                        '¡Sesion expirada!',
+                        'fa-solid fa-hourglass-end',
+                        'danger',
+                        'Entendido',
+                    )
+
                     router.navigate(['/auth']);
                     return throwError(() => err);
                 }
@@ -38,14 +43,17 @@ export const authResponseInterceptor: HttpInterceptorFn = (req, next) => {
                 if (!refresh_token) {
                     cookieService.removeAll()
                     sessionStorageService.removeAll()
-                    alertService.notify({
-                        type: 'danger',
-                        icon: 'fa-solid fa-hourglass-end',
-                        title: 'Sesion expirada',
-                        message: 'Su sesion a expirado, vuelva a iniciar sesion',
-                        color: 'danger',
-                        guard: false
-                    })
+                    alertQuestionService.notify(
+                        () => {
+                            alertQuestionService.close()
+                        },
+                        false,
+                        'Su sesion ha expirado, vuelva a iniciar sesion',
+                        '¡Sesion expirada!',
+                        'fa-solid fa-hourglass-end',
+                        'danger',
+                        'Entendido',
+                    )
                     router.navigate(['/auth']);
                     return throwError(() => err)
                 }
@@ -63,14 +71,17 @@ export const authResponseInterceptor: HttpInterceptorFn = (req, next) => {
                     }), catchError(err => {
                         cookieService.removeAll()
                         sessionStorageService.removeAll()
-                        alertService.notify({
-                            type: 'danger',
-                            icon: 'fa-solid fa-hourglass-end',
-                            title: 'Sesion expirada',
-                            message: 'Su sesion a expirado, vuelva a iniciar sesion',
-                            color: 'danger',
-                            guard: false
-                        })
+                        alertQuestionService.notify(
+                            () => {
+                                alertQuestionService.close()
+                            },
+                            false,
+                            'Su sesion ha expirado, vuelva a iniciar sesion',
+                            '¡Sesion expirada!',
+                            'fa-solid fa-hourglass-end',
+                            'danger',
+                            'Entendido',
+                        )
                         router.navigate(['/auth']);
                         return throwError(() => err);
                     })

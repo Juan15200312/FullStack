@@ -1,21 +1,29 @@
 <div class="modal-backdrop" (click)="cancelar()">
     <section class="view-content" (click)="$event.stopPropagation()">
-        <div class="d-flex align-items-center justify-content-between px-2 pt-3 pb-4 border-bottom border-secondary">
+        <div class="d-flex flex-column px-4 gap-4 pt-3 w-100 pb-4 border-bottom border-secondary">
 
-            <div class="d-flex gap-2 align-items-center justify-content-center">
-                <div class="perfil-logo bg-light rounded-circle">
+            @if (userService.user()){
+                <div class="d-flex gap-2 w-100">
+                    <div class="perfil-logo rounded-circle d-flex align-items-center justify-content-center">
+                        <img src="{{userService.user()?.photo_perfil}}" class="img-fluid rounded-circle w-100 h-100">
+                    </div>
+                    <div class="w-100" style="min-width: 0">
+                        <p class="m-0 p-0 fw-bold text-truncate">{{userService.user()?.names}}</p>
+                        <p class="m-0 p-0 text-light text-truncate">{{userService.user()?.email}}</p>
+                    </div>
                 </div>
-                <div class="">
-                    <p class="m-0 p-0 fw-bold">Juan Ortiz</p>
-                    <p class="m-0 p-0 text-light">Lector ávido</p>
+            } @else {
+                <div class="d-flex flex-column gap-5 w-100">
+                    <div class="w-100 mt-2 d-flex flex-column gap-2" style="min-width: 0">
+                        <p class="m-0 p-0 fw-bold fs-5">Bienvenido, lector</p>
+                        <p class="m-0 p-0 text-light text-wrap">Inicia sesión para acceder a tu biblioteca y ofertas exclusivas</p>
+                    </div>
                 </div>
-            </div>
+                <button class="btn btn-primary fw-semibold" routerLink="/auth" (click)="cancelar()">
+                    Iniciar session / Registrarse
+                </button>
+            }
 
-            <div class="cerrar bg-danger rounded-circle d-flex justify-content-center align-items-center c-pointer"
-                 (click)="cancelar()"
-            >
-                <i class="fa-solid fa-xmark text-white"></i>
-            </div>
         </div>
 
         <div class="d-flex flex-column h-100 justify-content-between">
@@ -23,6 +31,7 @@
                 <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
                      routerLink="/dashboard"
                      routerLinkActive="bg-primary text-primary"
+                     (click)="cancelar()"
                 >
                     <i class="fa-solid fa-house fs-5"></i>
                     <span class="fw-bold">Inicio</span>
@@ -31,6 +40,7 @@
                 <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
                      routerLink="/categories"
                      routerLinkActive="bg-primary text-primary"
+                     (click)="cancelar()"
                 >
                     <i class="fa-solid fa-shapes fs-5"></i>
                     <span class="fw-bold">Explorar categorías</span>
@@ -39,6 +49,7 @@
                 <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
                      routerLink="/wishlist"
                      routerLinkActive="bg-primary text-primary"
+                     (click)="cancelar()"
                 >
                     <i class="fa-solid fa-heart fs-5"></i>
                     <span class="fw-bold">Mi lista</span>
@@ -47,6 +58,7 @@
                 <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
                      routerLink="/library"
                      routerLinkActive="bg-primary text-primary"
+                     (click)="cancelar()"
                 >
                     <i class="fa-solid fa-book fs-5"></i>
                     <span class="fw-bold">Biblioteca</span>
@@ -55,19 +67,23 @@
                 <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
                      routerLink="/library"
                      routerLinkActive="bg-primary text-primary"
+                     (click)="cancelar()"
                 >
                     <i class="fa-solid fa-user fs-5"></i>
                     <span class="fw-bold">Ver perfil</span>
                 </div>
             </div>
 
-            <div class="p-1">
-                <div class="item-logout d-flex gap-3 p-3 text-danger align-items-center rounded-3 bg-opacity-10"
-                >
-                    <i class="fa-solid fa-right-from-bracket fs-5"></i>
-                    <span class="fw-bold">Cerrar sesión</span>
+            @if (userService.user()){
+                <div class="p-1">
+                    <div class="item-logout d-flex gap-3 p-3 text-danger align-items-center rounded-3 bg-opacity-10"
+                        (click)="userService.logout(); cancelar()"
+                    >
+                        <i class="fa-solid fa-right-from-bracket fs-5"></i>
+                        <span class="fw-bold">Cerrar sesión</span>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </section>
 </div>

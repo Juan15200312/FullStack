@@ -4,7 +4,8 @@ import {BooksService} from "../../../core/services/books/books.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {NgClass} from "@angular/common";
 import {CartService} from "../../../core/services/cart/cart-service";
-import {AlertService} from "../../../core/services/alerts/alert-service";
+import {AlertQuestionService} from "../../../core/services/alerts-question/alert-question-service";
+import {UserService} from "../../../core/services/user/user-service";
 
 @Component({
     selector: 'app-category',
@@ -22,7 +23,8 @@ export class Category {
     private bookService = inject(BooksService)
     private route = inject(ActivatedRoute)
     protected cartService = inject(CartService)
-    private alertService = inject(AlertService)
+    private alertQuestionService = inject(AlertQuestionService)
+    protected userService = inject(UserService)
 
     ngOnInit(): void {
         this.route.paramMap.subscribe(params => {
@@ -44,15 +46,29 @@ export class Category {
     addWishlist(slug: string) {
         this.bookService.addWishlist(slug).subscribe({
             next: response => {
-                this.alertService.notify({
-                    type: 'success', icon: 'fa-solid fa-heart-circle-check', title: '¡Agregado!', message: response.message,
-                    color: 'success', guard: false
-                })
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    response.message,
+                    '¡Libro agregado!',
+                    'fa-solid fa-heart-circle-check',
+                    'success',
+                    'Aceptar',
+                )
             }, error: error => {
-                this.alertService.notify({
-                    type: 'danger', icon: 'fa-solid fa-heart-circle-exclamation', title: '¡Error!', message: error.error.message,
-                    color: 'danger', guard: false
-                })
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    error.error.message,
+                    '¡Error!',
+                    'fa-solid fa-heart-circle-exclamation',
+                    'danger',
+                    'Entendido',
+                )
             }
         })
 

@@ -2,11 +2,9 @@ import {Component, inject, input, InputSignal, output} from '@angular/core';
 import {CartService} from "../../../core/services/cart/cart-service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NgClass} from "@angular/common";
 import {CuponService} from "../../../core/services/cupon/cupon-service";
 import {SessionStorageService} from "../../../core/services/sessionStorage/session-storage.service";
-import {CuponResponse} from "../../../core/interfaces/books/cuponResponse";
-import {AlertService} from "../../../core/services/alerts/alert-service";
+import {AlertQuestionService} from "../../../core/services/alerts-question/alert-question-service";
 
 @Component({
     selector: 'app-order-summary',
@@ -26,7 +24,7 @@ export class OrderSummary {
     private cuponService = inject(CuponService);
     private sessionStorage = inject(SessionStorageService)
     private fb = inject(FormBuilder)
-    private alertService = inject(AlertService);
+    private alertQuestionService = inject(AlertQuestionService);
     protected formCupon = this.fb.group({
         code: ['', Validators.required],
     })
@@ -44,24 +42,30 @@ export class OrderSummary {
         this.cuponService.post(code).subscribe({
             next: response => {
                 this.cartService.cupon.set(response)
-                this.alertService.notify({
-                    title: 'Cupon agregado',
-                    color: 'success',
-                    message: `¡Felicidades, obtuviste un ${response.discount}% de descuento en tu compra!`,
-                    icon: 'fa-solid fa-user-astronaut',
-                    type: 'success',
-                    guard: false
-                })
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    'Felicidades, obtuviste un ${response.discount}% de descuento en tu compra',
+                    '¡Cupon agregado!',
+                    'fa-solid fa-user-astronaut',
+                    'success',
+                    'Aceptar',
+                )
             }, error: error => {
                 console.log(error);
-                this.alertService.notify({
-                    title: 'Error con el cupon',
-                    color: 'danger',
-                    message: error.error,
-                    icon: 'fa-solid fa-user-astronaut',
-                    type: 'danger',
-                    guard: false
-                })
+                this.alertQuestionService.notify(
+                    () => {
+                        this.alertQuestionService.close()
+                    },
+                    false,
+                    error.error,
+                    '¡Error con el cupon!',
+                    'fa-solid fa-user-astronaut',
+                    'danger',
+                    'Entendido',
+                )
             }
         })
     }

@@ -1,7 +1,7 @@
 from rest_framework import serializers
-import re
 from rest_framework_simplejwt.tokens import RefreshToken
 from Users.models import CustomUser
+from Users.serializers.user_info_serializer import UserInfoSerializer
 
 
 class LoginSerializer(serializers.ModelSerializer):
@@ -48,17 +48,14 @@ class LoginSerializer(serializers.ModelSerializer):
 
         refresh_token = RefreshToken.for_user(user)
         access_token = refresh_token.access_token
-        info = getattr(user, 'info', None)
+
+        user_serializer = UserInfoSerializer(user, context=self.context)
 
         return {
             'success': True,
             'message': f'Bienvenido {user.names}',
             'data': {
-                'user': {
-                    'names': user.names,
-                    'email': user.email,
-                    'photo_perfil': info.photo_perfil.url if info and info.photo_perfil else '',
-                },
+                'user': user_serializer.data,
                 'access_token': str(access_token),
                 'refresh_token': str(refresh_token)
             }

@@ -5,22 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a0aa059-e016-46d5-90a5-f4d74225860d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/guards/auth/auth-guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/guards/auth/auth-guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/guards/checkout/checkout-guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/guards/checkout/checkout-guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/books/books.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/books/books.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/alerts/alert-service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/alerts/alert-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/core/services/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/login/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/register/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/auth/register/register.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/categories/category/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/wishlist/wishlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/header/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoTemplate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/features/dashboard/dashboard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/features/dashboard/dashboard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularTemplate/src/app/layouts/main-layouts/componets/sidebar/sidebar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularTemplate/src/app/shared/components/popups/alert/alert.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books/views/wishlist_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Books/views/wishlist_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/serializers/login_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers/login_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/views/login_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views/login_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,34 +79,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.DjangoTemplates.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.register_view.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "ffa850d4",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/juanj/Documents/FullStack/DjangoTemplate",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.DjangoTemplates.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.register_view.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/juanj/Documents/FullStack/DjangoTemplate&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="DjangoTemplate" is-module-sdk="true">
@@ -113,8 +122,8 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="DJANGO_SETTINGS_MODULE" value="DjangoTemplate.settings" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="DjangoTemplate.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="SDK_NAME" value="Python 3.14" />
@@ -179,6 +188,7 @@
       <workItem from="1771598164049" duration="9305000" />
       <workItem from="1771866432705" duration="11515000" />
       <workItem from="1771883872585" duration="1386000" />
+      <workItem from="1771945880206" duration="15857000" />
     </task>
     <servers />
   </component>

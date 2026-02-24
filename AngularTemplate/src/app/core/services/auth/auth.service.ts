@@ -20,6 +20,9 @@ export class AuthService {
     return this.http.post<any>(`${this.URL}/register/`, data)
   }
 
+  logout(refresh_token:any){
+    return this.http.post<any>(`${this.URL}/logout/`, {refresh_token: refresh_token})
+  }
 
   refreshToken(refresh_token:string){
     return this.http.post<any>(`${this.URL}/token/refresh/`, {refresh : refresh_token})

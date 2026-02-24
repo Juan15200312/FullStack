@@ -1,7 +1,7 @@
 import {CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 import {AuthCookieService} from "../../services/cookies/auth-cookie.service";
-import {AlertService} from "../../services/alerts/alert-service";
+import {AlertQuestionService} from "../../services/alerts-question/alert-question-service";
 
 export const authGuard: CanActivateFn = (route, state) => {
 
@@ -9,20 +9,25 @@ export const authGuard: CanActivateFn = (route, state) => {
     const token = cookieService.get('token');
     const refreshToken = cookieService.get('refresh_token');
     const router = inject(Router);
-    const alertService = inject(AlertService)
+    const alertQuestionService = inject(AlertQuestionService)
 
     if (token || refreshToken) {
         return true
     }
 
-    alertService.notify({
-        type: 'danger',
-        icon: 'fa-solid fa-user-lock',
-        title: 'Acceso denegado',
-        message: 'Necesita iniciar sesion para acceder a esta sección.',
-        color: 'danger',
-        guard: true
-    })
+    alertQuestionService.notify(
+        () => {
+            alertQuestionService.close()
+            router.navigate(['/auth'])
+        },
+        true,
+        'Necesita iniciar sesion para acceder a esta sección',
+        '¡Acceso denegado!',
+        'fa-solid fa-user-lock',
+        'warning',
+        'Iniciar Sesion',
+        'Cancelar',
+    )
 
     return false;
 };

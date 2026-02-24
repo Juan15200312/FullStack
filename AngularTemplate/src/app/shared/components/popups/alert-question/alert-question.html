@@ -12,14 +12,14 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center gap-2">
-            <button class="btn btn-{{type()}} text-white fw-semibold" (click)="cancelar()">
-                Aceptar
-            </button>
-            @if (alertGuard()){
-                <button class="btn btn-success text-white fw-semibold" (click)="login()">
-                    Iniciar sesión
+            @if (viewButtonCa()){
+                <button class="btn btn-danger text-white fw-semibold" (click)="cancelar()">
+                    {{textButtonCa()}}
                 </button>
             }
+            <button class="btn btn-{{color()}} text-white fw-semibold" (click)="ejecutar()">
+                    {{textButtonAc()}}
+            </button>
         </div>
     </section>
 </div>
