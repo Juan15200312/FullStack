@@ -47,7 +47,7 @@ export class OrderSummary {
                         this.alertQuestionService.close()
                     },
                     false,
-                    'Felicidades, obtuviste un ${response.discount}% de descuento en tu compra',
+                    `Felicidades, obtuviste un ${response.discount}% de descuento en tu compra`,
                     '¡Cupon agregado!',
                     'fa-solid fa-user-astronaut',
                     'success',

@@ -2,21 +2,22 @@
     <section class="view-content" (click)="$event.stopPropagation()">
         <div class="d-flex flex-column px-4 gap-4 pt-3 w-100 pb-4 border-bottom border-secondary">
 
-            @if (userService.user()){
+            @if (userService.user()) {
                 <div class="d-flex gap-2 w-100">
                     <div class="perfil-logo rounded-circle d-flex align-items-center justify-content-center">
                         <img src="{{userService.user()?.photo_perfil}}" class="img-fluid rounded-circle w-100 h-100">
                     </div>
                     <div class="w-100" style="min-width: 0">
-                        <p class="m-0 p-0 fw-bold text-truncate">{{userService.user()?.names}}</p>
-                        <p class="m-0 p-0 text-light text-truncate">{{userService.user()?.email}}</p>
+                        <p class="m-0 p-0 fw-bold text-truncate">{{ userService.user()?.names }}</p>
+                        <p class="m-0 p-0 text-light text-truncate">{{ userService.user()?.email }}</p>
                     </div>
                 </div>
             } @else {
                 <div class="d-flex flex-column gap-5 w-100">
                     <div class="w-100 mt-2 d-flex flex-column gap-2" style="min-width: 0">
                         <p class="m-0 p-0 fw-bold fs-5">Bienvenido, lector</p>
-                        <p class="m-0 p-0 text-light text-wrap">Inicia sesión para acceder a tu biblioteca y ofertas exclusivas</p>
+                        <p class="m-0 p-0 text-light text-wrap">Inicia sesión para acceder a tu biblioteca y ofertas
+                            exclusivas</p>
                     </div>
                 </div>
                 <button class="btn btn-primary fw-semibold" routerLink="/auth" (click)="cancelar()">
@@ -46,38 +47,40 @@
                     <span class="fw-bold">Explorar categorías</span>
                 </div>
 
-                <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
-                     routerLink="/wishlist"
-                     routerLinkActive="bg-primary text-primary"
-                     (click)="cancelar()"
-                >
-                    <i class="fa-solid fa-heart fs-5"></i>
-                    <span class="fw-bold">Mi lista</span>
-                </div>
+                @if (userService.user()) {
+                    <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
+                         routerLink="/wishlist"
+                         routerLinkActive="bg-primary text-primary"
+                         (click)="cancelar()"
+                    >
+                        <i class="fa-solid fa-heart fs-5"></i>
+                        <span class="fw-bold">Mi lista</span>
+                    </div>
 
-                <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
-                     routerLink="/library"
-                     routerLinkActive="bg-primary text-primary"
-                     (click)="cancelar()"
-                >
-                    <i class="fa-solid fa-book fs-5"></i>
-                    <span class="fw-bold">Biblioteca</span>
-                </div>
+                    <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
+                         routerLink="/library"
+                         routerLinkActive="bg-primary text-primary"
+                         (click)="cancelar()"
+                    >
+                        <i class="fa-solid fa-book fs-5"></i>
+                        <span class="fw-bold">Biblioteca</span>
+                    </div>
 
-                <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
-                     routerLink="/library"
-                     routerLinkActive="bg-primary text-primary"
-                     (click)="cancelar()"
-                >
-                    <i class="fa-solid fa-user fs-5"></i>
-                    <span class="fw-bold">Ver perfil</span>
-                </div>
+                    <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
+                         routerLink="/library"
+                         routerLinkActive="bg-primary text-primary"
+                         (click)="cancelar()"
+                    >
+                        <i class="fa-solid fa-user fs-5"></i>
+                        <span class="fw-bold">Ver perfil</span>
+                    </div>
+                }
             </div>
 
-            @if (userService.user()){
+            @if (userService.user()) {
                 <div class="p-1">
                     <div class="item-logout d-flex gap-3 p-3 text-danger align-items-center rounded-3 bg-opacity-10"
-                        (click)="userService.logout(); cancelar()"
+                         (click)="userService.logout(); cancelar()"
                     >
                         <i class="fa-solid fa-right-from-bracket fs-5"></i>
                         <span class="fw-bold">Cerrar sesión</span>

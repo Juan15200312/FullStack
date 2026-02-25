@@ -17,4 +17,3 @@ class LoginView(APIView):
 
         error_messages = order_errors(serializer.errors)
         return Response({'errors': error_messages}, status=status.HTTP_400_BAD_REQUEST)
-

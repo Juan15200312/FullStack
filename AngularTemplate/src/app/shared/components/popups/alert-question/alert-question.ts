@@ -34,7 +34,6 @@ export class AlertQuestion {
         this.cancelar();
     }
 
-
     cancelar() {
         this.onClose.emit();
     }
