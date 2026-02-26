@@ -3,7 +3,6 @@ AngularTemplate/node_modules/
 AngularTemplate/.idea/
 
 DjangoTemplate/.env
-DjangoTemplate/db.sqlite3
 DjangoTemplate/venv
 DjangoTemplate/.venv
 DjangoTemplate/.idea/
