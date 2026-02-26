@@ -1,4 +1,4 @@
-<header class="bg-white container-fluid p-3 border-bottom">
+<header class="bg-white container-fluid p-3 border-bottom position-fixed he">
     <div class="row align-items-center g-2">
 
         <div class="col-6 col-md-3 col-lg-2 ">
@@ -38,15 +38,23 @@
 
                     @if (userService.user()) {
                         <div class="perfil-logo rounded-circle c-pointer d-flex align-items-center justify-content-center"
-                            (click)="showPopupUser.set(true)"
+                             (click)="showPopupUser.set(true)"
+                             [ngClass]="userService.user()?.photo_perfil ? '': 'bg-primary bg-opacity-25'"
                         >
-                            <img src="{{userService.user()?.photo_perfil}}"
-                                 class="img-fluid rounded-circle w-100 h-100">
+                            @if (userService.user()?.photo_perfil) {
+                                <img src="{{userService.user()?.photo_perfil}}"
+                                     class="img-fluid rounded-circle w-100 h-100">
+                            } @else {
+                                <span class=" fw-bold ">{{userService.initialName()}}</span>
+                            }
                         </div>
+                    } @else {
+                        <i class="luz fa-solid fa-user fs-5 d-none d-lg-block" (click)="showPopupUser.set(true)">
+                        </i>
                     }
 
-                    <div class="position-relative d-inline-block">
-                        <i class="luz bi bi-cart4 fs-5"
+                    <div class="position-relative d-flex">
+                        <i class="fa-solid fa-cart-shopping fs-5"
                            routerLink="/cart"
                            routerLinkActive="text-primary"
                            role="button">
@@ -66,7 +74,7 @@
     </div>
 </header>
 
-@if (showPopupUser()){
+@if (showPopupUser()) {
     <app-user-popup (onClose)="showPopupUser.set(false)">
     </app-user-popup>
 }

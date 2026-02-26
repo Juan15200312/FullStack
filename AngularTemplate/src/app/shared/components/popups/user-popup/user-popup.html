@@ -1,10 +1,16 @@
 <div class="popup-overlay" (click)="close()"></div>
 
-<div class="user-popup-container shadow-lg border rounded-3 bg-white p-3">
+<div class="user-popup-container border rounded-3 bg-white-shadow p-3">
     <div class="d-flex flex-column justify-content-center align-items-center gap-2 w-100">
         @if (userService.user()){
-            <div class="perfil-logo rounded-circle d-flex align-items-center justify-content-center">
-                <img src="{{userService.user()?.photo_perfil}}" class="img-fluid rounded-circle w-100 h-100">
+            <div class="perfil-logo rounded-circle d-flex align-items-center justify-content-center"
+                [ngClass]="userService.user()?.photo_perfil ? '': 'bg-primary bg-opacity-25'"
+            >
+                @if (userService.user()?.photo_perfil){
+                    <img src="{{userService.user()?.photo_perfil}}" class="img-fluid rounded-circle w-100 h-100">
+                } @else {
+                    <span class="fs-5 fw-bold ">{{userService.initialName()}}</span>
+                }
             </div>
             <div class="w-100" style="min-width: 0">
                 <p class="m-0 p-0 fw-bold text-truncate">{{ userService.user()?.names }}</p>
@@ -12,7 +18,10 @@
             </div>
 
             <div class="w-100 mt-3 d-flex flex-column gap-2">
-                <div class="btn-popup-perfil c-pointer text-primary d-flex align-items-center gap-2 justify-content-center p-1 rounded-3">
+                <div class="btn-popup-perfil c-pointer text-primary d-flex align-items-center gap-2 justify-content-center p-1 rounded-3"
+                    routerLink="/user/profile"
+                     (click)="close()"
+                >
                     <i class="fa-solid fa-user-pen"></i>
                     <span class="fw-semibold">Ver perfil</span>
                 </div>
@@ -24,6 +33,17 @@
                     <span class="fw-semibold">Cerrar sesión</span>
                 </div>
             </div>
+        } @else {
+            <div class="d-flex flex-column gap-5 w-100">
+                <div class="w-100 mt-2 d-flex flex-column gap-2" style="min-width: 0">
+                    <p class="m-0 p-0 fw-bold fs-5">Bienvenido, lector</p>
+                    <p class="m-0 p-0 text-light text-justify">Inicia sesión para poder acceder a tu biblioteca y ofertas
+                        exclusivas</p>
+                </div>
+            </div>
+            <button class="btn btn-primary fw-semibold" routerLink="/auth" (click)="close()">
+                Iniciar session / Registrarse
+            </button>
         }
     </div>
 

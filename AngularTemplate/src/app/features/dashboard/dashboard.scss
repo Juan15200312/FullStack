@@ -52,6 +52,11 @@
       visibility: visible;
       transform: translateY(0);
     }
+    .add-heart {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
     p:first-of-type {
       color: var(--color-primary);
@@ -79,4 +84,26 @@
     background-color: var(--color-primary);
     transform: scale(1.1);
   }
+}
+
+.add-heart {
+  background-color: white;
+  color: var(--color-danger);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-self: start;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background-color: var(--color-danger);
+    transform: scale(1.1);
+  }
+}
+
+.ja{
+  align-self: end;
+  justify-self: end;
 }

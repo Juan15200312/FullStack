@@ -3,6 +3,7 @@ from Books.models import AuthorModel
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'names',)
+    search_fields = ('names', 'slug')
 
 admin.site.register(AuthorModel, AuthorAdmin)

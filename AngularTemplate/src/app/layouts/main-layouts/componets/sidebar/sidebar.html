@@ -4,8 +4,15 @@
 
             @if (userService.user()) {
                 <div class="d-flex gap-2 w-100">
-                    <div class="perfil-logo rounded-circle d-flex align-items-center justify-content-center">
-                        <img src="{{userService.user()?.photo_perfil}}" class="img-fluid rounded-circle w-100 h-100">
+                    <div class="perfil-logo flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
+                         [ngClass]="userService.user()?.photo_perfil ? '': 'bg-primary bg-opacity-25'"
+                    >
+                        @if (userService.user()?.photo_perfil) {
+                            <img src="{{userService.user()?.photo_perfil}}"
+                                 class="img-fluid rounded-circle w-100 h-100">
+                        } @else {
+                            <span class="fs-5 fw-bold ">{{userService.initialName()}}</span>
+                        }
                     </div>
                     <div class="w-100" style="min-width: 0">
                         <p class="m-0 p-0 fw-bold text-truncate">{{ userService.user()?.names }}</p>
@@ -65,28 +72,8 @@
                         <i class="fa-solid fa-book fs-5"></i>
                         <span class="fw-bold">Biblioteca</span>
                     </div>
-
-                    <div class="item d-flex gap-3 p-3 align-items-center rounded-3 bg-opacity-10"
-                         routerLink="/library"
-                         routerLinkActive="bg-primary text-primary"
-                         (click)="cancelar()"
-                    >
-                        <i class="fa-solid fa-user fs-5"></i>
-                        <span class="fw-bold">Ver perfil</span>
-                    </div>
                 }
             </div>
-
-            @if (userService.user()) {
-                <div class="p-1">
-                    <div class="item-logout d-flex gap-3 p-3 text-danger align-items-center rounded-3 bg-opacity-10"
-                         (click)="userService.logout(); cancelar()"
-                    >
-                        <i class="fa-solid fa-right-from-bracket fs-5"></i>
-                        <span class="fw-bold">Cerrar sesión</span>
-                    </div>
-                </div>
-            }
         </div>
     </section>
 </div>

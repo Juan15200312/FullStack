@@ -1,10 +1,10 @@
 <section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
     <div class="px-4 py-1 cont w-100">
 
-        <div class="row border-bottom pb-3">
+        <div class="row border-bottom g-4 pb-3">
             <div class="col-12 col-md-6">
                 <h1 class="m-0 p-0 fw-bold">Mi lista de deseos</h1>
-                <p class="m-0 p-0 opacity-50">12 libros guardados para mas tarde</p>
+                <p class="m-0 p-0 opacity-50">{{wishlist().length}} libros guardados para mas tarde</p>
             </div>
 
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
@@ -25,9 +25,11 @@
 
             @for (book of wishlist(); track book.id) {
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-white-shadow d-flex flex-column gap-2 rounded-3 p-3">
-                        <div class="d-flex flex-column position-relative" [ngClass]="book.stock ? '':'opacity-50'">
-                            <img src="{{book.image}}" class="img-fluid m-card rounded-3">
+                    <div class="bg-white-shadow d-flex flex-column gap-2 rounded-3 p-3 c-pointer"
+                         routerLink="/books/{{book.slug}}"
+                    >
+                        <div class="d-flex flex-column position-relative">
+                            <img src="{{book.image}}" class="img-fluid m-card rounded-3" [ngClass]="book.stock ? '':'opacity-50'">
                             @if (book.stock > 5) {
                                 <div class="rounded-pill bg-white align-self-end m-2 position-absolute">
                                     <p class="m-0 p-0 fw-semibold text-success px-2 py-1">En stock</p>
@@ -52,12 +54,12 @@
                         <div class="d-flex gap-1 justify-content-between">
                             <button class="btn btn-primary"
                                     [disabled]="!book.stock"
-                                    (click)="cartService.add(book, true)"
+                                    (click)="cartService.add(book, true); $event.stopPropagation()"
                             >
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Agregar
                             </button>
-                            <button class="btn btn_delete" (click)="deleteBookWishlist(book.slug)">
+                            <button class="btn btn_delete" (click)="deleteBookWishlist(book.slug); $event.stopPropagation()">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>

@@ -4,6 +4,7 @@ import {CartService} from "../../../../core/services/cart/cart-service";
 import {Sidebar} from "../sidebar/sidebar";
 import {UserService} from "../../../../core/services/user/user-service";
 import {UserPopup} from "../../../../shared/components/popups/user-popup/user-popup";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {UserPopup} from "../../../../shared/components/popups/user-popup/user-po
         RouterLink,
         RouterLinkActive,
         Sidebar,
-        UserPopup
+        UserPopup,
+        NgClass
     ],
   templateUrl: './header.html',
   styleUrl: './header.scss',

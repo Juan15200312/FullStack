@@ -4,13 +4,13 @@ import {checkoutGuard} from "./core/guards/checkout/checkout-guard";
 
 export const routes: Routes = [
     {
-        path: 'auth',
-        loadComponent: () => import('./features/auth/login/login').then((c) => c.Login)
-    },
-    {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
+    },
+    {
+        path: 'auth',
+        loadComponent: () => import('./features/auth/login/login').then((c) => c.Login)
     },
     {
         path: '',
@@ -72,6 +72,37 @@ export const routes: Routes = [
                 path: 'books/:slug',
                 loadComponent: () => import('./features/book-detail/book-detail').then((c) => c.BookDetail),
 
+            },
+            {
+                path: 'user',
+                loadComponent: () => (import('./layouts/user-perfil/user-perfil')).then((c) => c.UserPerfil),
+                children: [
+                    {
+                        path: 'profile',
+                        loadComponent: () => import('./features/user/profile/profile').then((c) => c.Profile),
+                        canActivate: [authGuard],
+                    },
+                    {
+                        path: 'security',
+                        loadComponent: () => import('./features/user/security/security').then((c) => c.Security),
+                        canActivate: [authGuard],
+                    },
+                    {
+                        path: 'orders',
+                        loadComponent: () => import('./features/user/order-history/order-history').then((c) => c.OrderHistory),
+                        canActivate: [authGuard],
+                    },
+                    {
+                        path: 'payment-methods',
+                        loadComponent: () => import('./features/user/payment-methods/payment-methods').then((c) => c.PaymentMethods),
+                        canActivate: [authGuard],
+                    },
+                    {
+                        path: 'shipping-addresses',
+                        loadComponent: () => import('./features/user/shipping-address/shipping-address').then((c) => c.ShippingAddress),
+                        canActivate: [authGuard],
+                    },
+                ],
             }
 
         ],

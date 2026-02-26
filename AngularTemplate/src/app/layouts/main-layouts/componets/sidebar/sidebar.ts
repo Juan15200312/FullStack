@@ -1,13 +1,15 @@
 import {Component, HostListener, inject, output} from '@angular/core';
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {UserService} from "../../../../core/services/user/user-service";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-sidebar',
-  imports: [
-    RouterLink,
-    RouterLinkActive
-  ],
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        NgClass
+    ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })

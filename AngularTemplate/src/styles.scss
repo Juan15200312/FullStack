@@ -108,6 +108,9 @@ html, body {
   max-width: 1500px;
 }
 
+.text-justify{
+  text-align: justify;
+}
 
 .bs-cat-rojo {
   background: rgba(229, 57, 53, 0.25);
@@ -243,4 +246,14 @@ html, body {
 .bs-cat-info {
   background: rgba(2, 136, 209, 0.25);
   color: #0288d1;
+}
+
+@media (min-width: 768px) {
+  .border-md-end {
+    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  }
+}
+
+.preserve-lines {
+  white-space: pre-line;
 }

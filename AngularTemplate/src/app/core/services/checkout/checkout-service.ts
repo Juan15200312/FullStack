@@ -63,7 +63,7 @@ export class CheckoutService {
                 count: item.count
             })),
             total: Math.round(this.cartService.total() * 100) /100,
-            cupon_code: cupon.id > 0 ? cupon.code : undefined
+            cupon_code: cupon ? cupon.code : undefined
         };
     })
 

@@ -1,1 +1,129 @@
-<p>book-detail works!</p>
+<section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="px-4 py-1 cont w-100">
+        <div class="row px-2 py-2 py-3 rounded-3 mb-5">
+            <div class="col-12 col-lg-4 d-flex flex-column gap-4">
+                <img src="{{bookDetail()?.image}}" class="img-fluid rounded-3 ">
+                <div class="d-flex gap-3 align-items-center justify-content-center text-light">
+                    @if (userService.user()) {
+                        <div class="hover-he c-pointer" (click)="addWishlist()">
+                            <i class="fa-solid fa-heart"></i>
+                            <span class="ps-1 hover:op100">Añadir a Mi lista</span>
+                        </div>
+                    }
+                    <div class="hover-sh c-pointer">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <span class="ps-1">Compartir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-8 ps-lg-5 d-flex flex-column align-items-start justify-content-start gap-2 mt-4 mt-lg-0">
+                <div class="d-flex gap-2 align-items-center">
+                    @for (category of bookDetail()?.categories; track category) {
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-3 px-2">
+                            <span class="fw-semibold">{{ category }}</span>
+                        </div>
+                    }
+                </div>
+                <div class="d-flex flex-column gap-2">
+                    <span class="fw-bold fs-1">{{ bookDetail()?.title }}</span>
+                    <span>De <span class="text-primary fw-semibold">{{ bookDetail()?.authors }}</span></span>
+                </div>
+
+                <div class="d-flex justify-content-between w-100">
+                    <div class="d-flex align-items-center text-warning">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span class="fw-semibold text-black ps-3">4.5</span>
+                    </div>
+
+                    <div>
+                        <span class="fw-bolder fs-1">{{ priceBook() }} €</span>
+                    </div>
+                </div>
+
+                <div class="bg-white-shadow w-100 p-3 rounded-3 mt-4">
+                    <div class="row g-4"
+                         [ngClass]="stockBook() === 0 ? 'opacity-25':''">
+                        <div class="col-12 col-md-6 border-md-end">
+                            <div class="d-flex gap-3 align-items-center">
+                                <div class="rounded-circle p-1 bg-opacity-10"
+                                     [ngClass]="stockBook()>5 ? 'bg-success' : (stockBook() > 0 && stockBook() <= 5) ? 'bg-warning': 'bg-danger'"
+                                >
+                                    <i class="fa-solid"
+                                       [ngClass]="stockBook()>5 ? 'text-success fa-check' : (stockBook() > 0 && stockBook() <= 5) ? 'text-warning fa-exclamation': 'text-danger fa-xmark'"
+                                    ></i>
+                                </div>
+                                @if (stockBook() > 5) {
+                                    <div class="d-flex flex-column">
+                                        <span class="text-success fw-semibold">En Stock</span>
+                                        <span class="text-light">Envió en 24 horas</span>
+                                    </div>
+                                } @else if (stockBook() > 0 && stockBook() <= 5) {
+                                    <div class="d-flex flex-column">
+                                        <span class="text-warning fw-semibold">Últimos {{ stockBook() }} libros</span>
+                                        <span class="text-light">Envió en 24 horas</span>
+                                    </div>
+                                } @else if (stockBook() === 0) {
+                                    <div class="d-flex flex-column">
+                                        <span class="text-danger fw-semibold">Agotado</span>
+                                        <span class="text-light">Envió en 24 horas</span>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex gap-3 align-items-center justify-content-md-end">
+                                <div class="rounded-circle bg-primary p-1 bg-opacity-10">
+                                    <i class="fa-regular fa-truck text-primary"></i>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="text-black fw-semibold">Entrega estimada</span>
+                                    <span class="text-light">{{ fechas() }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-4">
+                        <div class="col-12 col-md-6">
+                            <button class="btn btn-primary w-100" (click)="addCart(true)"
+                                [disabled]="stockBook() === 0"
+                            >
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                Comprar ahora
+                            </button>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <button class="btn btn-black-white w-100" (click)="addCart(false)"
+                                    [disabled]="stockBook() === 0"
+                            >
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="mb-2">
+                        <span class="fw-semibold fs-5">Sinopsis</span>
+                    </div>
+                    <div>
+                        <p class="m-0 p-0 text-justify preserve-lines">
+                            {{ bookDetail()?.description }}
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

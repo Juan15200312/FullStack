@@ -29,48 +29,34 @@ export class Category {
     ngOnInit(): void {
         this.route.paramMap.subscribe(params => {
             let category = params.get("category");
+            console.log(category)
+            if (category === 'new-arrivals') {
+                this.bookService.getNewArrivals().subscribe({
+                    next: response => {
+                        this.books.set(response)
+                        this.nameCategory.set('Recien llegados');
+                        this.countBooks.set(this.books().length);
+                    }, error: error => {
+                        console.log(error);
+                    }
+                })
+            }else {
+                this.bookService.get(category).subscribe({
+                    next: response => {
+                        this.books.set(response.books)
+                        this.nameCategory.set(response.category.name);
+                        this.countBooks.set(response.count);
+                    }, error: error => {
+                        console.log(error);
+                    }
+                })
+            }
 
-            this.bookService.get(category).subscribe({
-                next: response => {
-                    this.books.set(response.books)
-                    this.nameCategory.set(response.category.name);
-                    this.countBooks.set(response.count);
-                }, error: error => {
-                    console.log(error);
-                }
-            })
 
         })
     }
 
     addWishlist(slug: string) {
-        this.bookService.addWishlist(slug).subscribe({
-            next: response => {
-                this.alertQuestionService.notify(
-                    () => {
-                        this.alertQuestionService.close()
-                    },
-                    false,
-                    response.message,
-                    '¡Libro agregado!',
-                    'fa-solid fa-heart-circle-check',
-                    'success',
-                    'Aceptar',
-                )
-            }, error: error => {
-                this.alertQuestionService.notify(
-                    () => {
-                        this.alertQuestionService.close()
-                    },
-                    false,
-                    error.error.message,
-                    '¡Error!',
-                    'fa-solid fa-heart-circle-exclamation',
-                    'danger',
-                    'Entendido',
-                )
-            }
-        })
-
+        this.bookService.addWishlistEj(slug)
     }
 }

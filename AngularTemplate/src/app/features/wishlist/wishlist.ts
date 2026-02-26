@@ -3,11 +3,13 @@ import {BookResponse} from "../../core/interfaces/books/bookResponse";
 import {BooksService} from "../../core/services/books/books.service";
 import {NgClass} from "@angular/common";
 import {CartService} from "../../core/services/cart/cart-service";
+import {RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-wishlist',
     imports: [
-        NgClass
+        NgClass,
+        RouterLink
     ],
     templateUrl: './wishlist.html',
     styleUrl: './wishlist.scss',
@@ -20,7 +22,6 @@ export class Wishlist implements OnInit {
     ngOnInit() {
         this.loadData()
     }
-
 
     private loadData() {
         this.bookService.getWishList().subscribe({

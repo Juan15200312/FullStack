@@ -1,0 +1,78 @@
+<section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="px-3 cont w-100">
+        <div class="row">
+            <div class="col-3 col-md-4 ">
+                <div class="bg-white-shadow rounded-3 px-3 py-4">
+                    <div class="d-flex gap-2 w-100 justify-content-center justify-content-md-start">
+                        <div class="perfil-logo flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
+                             [ngClass]="userService.user()?.photo_perfil ? '': 'bg-primary bg-opacity-25'"
+                        >
+                            @if (userService.user()?.photo_perfil) {
+                                <img src="{{userService.user()?.photo_perfil}}"
+                                     class="img-fluid rounded-circle w-100 h-100">
+                            } @else {
+                                <span class="fs-5 fw-bold ">{{userService.initialName()}}</span>
+                            }
+                        </div>
+                        <div class="d-none d-md-inline w-100" style="min-width: 0">
+                            <p class="m-0 p-0 fw-bold text-truncate">{{ userService.user()?.names }}</p>
+                            <p class="m-0 p-0 text-light text-truncate">{{ userService.user()?.email }}</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column p-1 gap-1 border-top mt-4">
+                        <div class="item d-flex gap-3 p-2 p-md-3 align-items-center justify-content-center justify-content-md-start rounded-3 bg-opacity-10 mt-4"
+                             routerLink="/user/profile"
+                             routerLinkActive="bg-primary text-primary"
+
+                        >
+                            <i class="fa-solid fa-address-card fs-5"></i>
+                            <span class="d-none d-md-inline fw-bold">Perfil</span>
+                        </div>
+
+                        <div class="item d-flex gap-3 p-2 p-md-3 align-items-center justify-content-center justify-content-md-start rounded-3 bg-opacity-10"
+                             routerLink="/user/security"
+                             routerLinkActive="bg-primary text-primary"
+
+                        >
+                            <i class="fa-solid fa-shield-halved fs-5"></i>
+                            <span class="d-none d-md-inline fw-bold">Seguridad</span>
+                        </div>
+                        <div class="item d-flex gap-3 p-2 p-md-3 align-items-center justify-content-center justify-content-md-start rounded-3 bg-opacity-10"
+                             routerLink="/user/orders"
+                             routerLinkActive="bg-primary text-primary"
+
+                        >
+                            <i class="fa-solid fa-folder-open fs-5"></i>
+                            <span class="d-none d-md-inline fw-bold">Ordenes</span>
+                        </div>
+                        <div class="item d-flex gap-3 p-2 p-md-3 align-items-center justify-content-center justify-content-md-start rounded-3 bg-opacity-10"
+                             routerLink="/user/payment-methods"
+                             routerLinkActive="bg-primary text-primary"
+
+                        >
+                            <i class="fa-solid fa-credit-card fs-5"></i>
+                            <span class="d-none d-md-inline fw-bold">Métodos de pago</span>
+                        </div>
+                        <div class="item d-flex gap-3 p-2 p-md-3 align-items-center justify-content-center justify-content-md-start rounded-3 bg-opacity-10"
+                             routerLink="/user/shipping-addresses"
+                             routerLinkActive="bg-primary text-primary"
+
+                        >
+                            <i class="fa-solid fa-map-location-dot fs-5"></i>
+                            <span class="d-none d-md-inline fw-bold">Direcciones de envió</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-9 col-md-8 ">
+                <div class="bg-white-shadow rounded-3">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

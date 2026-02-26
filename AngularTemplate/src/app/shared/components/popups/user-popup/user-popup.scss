@@ -1,13 +1,13 @@
 :host {
   position: absolute;
-  top: 60px; /* Ajusta según la altura de tu header */
-  right: 15px;
+  top: 60px;
+  right: 257px;
   z-index: 1050;
 }
 
 .user-popup-container {
   width: 240px;
-  position: relative;
+  position: fixed;
   z-index: 1051;
 }
 
@@ -21,29 +21,6 @@
   z-index: 1050;
 }
 
-.nav-link-custom {
-  display: block;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #333;
-  font-size: 0.9rem;
-}
-
-.nav-link-custom:hover {
-  background-color: #f8f9fa;
-  color: var(--bs-primary);
-}
-
-.extra-small {
-  font-size: 0.75rem;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .perfil-logo{
   width: 50px;
   height: 50px;
@@ -54,6 +31,7 @@
   cursor: pointer;
   background-color: rgba(224, 3, 3, 0.1);
 }
+
 .btn-popup-perfil{
   width: 100%;
   border: 1px solid var(--color-primary);
