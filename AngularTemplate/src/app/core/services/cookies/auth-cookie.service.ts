@@ -26,7 +26,7 @@ export class AuthCookieService {
 
 
     remove(key: string) {
-        this.cookieService.delete(key)
+        this.cookieService.delete(key, '/')
     }
 
 
@@ -36,7 +36,7 @@ export class AuthCookieService {
 
 
     removeAll(): void {
-        this.cookieService.deleteAll();
+        this.cookieService.deleteAll('/');
     }
 
 }

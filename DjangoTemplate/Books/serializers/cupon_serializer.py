@@ -23,7 +23,7 @@ class CuponSerializer(serializers.ModelSerializer):
 
         now = timezone.now()
         if not (now <= cupon.valid_to and now>=cupon.valid_from):
-            raise serializers.ValidationError('El cupon no puede expirar')
+            raise serializers.ValidationError('El cupon se encuentra expirado')
 
         return {
             'id': cupon.id,

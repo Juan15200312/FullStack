@@ -1,1 +1,94 @@
-<p>security works!</p>
+<div class="">
+    <h1 class="fw-bold">Seguridad y Contraseña</h1>
+    <p class="m-0 p-0 text-light">Administre su contraseña y configuración de seguridad para proteger su cuenta</p>
+</div>
+
+<div class="mt-5">
+    <h4 class="fw-bold">Cambiar contraseña</h4>
+
+    <form class="mt-3" [formGroup] = "formUserPassword" (ngSubmit)="updatePassword()">
+        <div class="mb-3">
+            <label for="currentPassword" class="form-label fw-semibold">Contraseña actual</label>
+            <div class="position-relative">
+                <input [type]="viewPassword ? 'text':'password'"
+                       class="form-control pe-5"
+                       placeholder="Ingrese su contraseña"
+                       id="currentPassword"
+                       formControlName="currentPassword"
+                       [ngClass]="isFieldInvalid('currentPassword') ? 'is-invalid':''"
+                >
+
+                @if (isFieldInvalid('currentPassword')){
+                    <div class="text-danger mt-2">
+                        @if (formUserPassword.get('currentPassword')?.errors?.['required']){
+                            <span>Se requiere la contraseña.</span>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label fw-semibold">Contraseña</label>
+            <div class="position-relative">
+                <input [type]="viewPassword ? 'text':'password'"
+                       class="form-control pe-5"
+                       placeholder="Ingrese su contraseña"
+                       id="password1"
+                       formControlName="password1"
+                       [ngClass]="isFieldInvalid('password1') ? 'is-invalid':''"
+                >
+
+                @if (isFieldInvalid('password1')){
+                    <div class="text-danger mt-2">
+                        @if (formUserPassword.get('password1')?.errors?.['required']){
+                            <span>Se requiere la contraseña.</span>
+                        }
+                        @if (formUserPassword.get('password1')?.errors?.['minlength']){
+                            <span>La contraseña debe contener al menos 8 caracteres.</span>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label fw-semibold">Confirmar nueva contraseña</label>
+            <div class="position-relative">
+                <input [type]="viewPassword ? 'text':'password'"
+                       class="form-control pe-5"
+                       placeholder="Ingrese su contraseña"
+                       id="password2"
+                       formControlName="password2"
+                       [ngClass]="isFieldInvalid('password2') ? 'is-invalid':''"
+                >
+
+                @if (isFieldInvalid('password2')){
+                    <div class="text-danger mt-2">
+                        @if (formUserPassword.get('password2')?.errors?.['required']){
+                            <span>Se requiere la contraseña.</span>
+                        }
+                        @if (formUserPassword.get('password2')?.errors?.['minlength']){
+                            <span>La contraseña debe contener al menos 8 caracteres.</span>
+                        }
+                    </div>
+                }
+
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" value="" id="checkDefault"
+                           (change)="changePassword()">
+                    <label class="form-check-label" for="checkDefault">
+                        Ver contraseña
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-5">
+            <button class="btn btn-primary" [disabled]="formUserPassword.invalid">
+                <i class="fa-solid fa-lock"></i>
+                Actualizar Contraseña
+            </button>
+        </div>
+    </form>
+</div>

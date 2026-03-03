@@ -3,10 +3,12 @@ from Books.models import BookModel, CuponModel
 from Checkout.models import OrderModel
 
 
-class OrderSerializer(serializers.ModelSerializer):
-    shipping = serializers.JSONField(write_only=True)
-    payment = serializers.JSONField(write_only=True)
-    items = serializers.JSONField(write_only=True)
+class OrderSerializer(serializers.Serializer):
+    shipping = serializers.JSONField()
+    payment = serializers.JSONField(required=False)
+    items = serializers.ListField()
+    total = serializers.DecimalField(max_digits=10, decimal_places=2)
+    cupon_code = serializers.CharField(required=False, allow_blank=True)
 
 
     class Meta:

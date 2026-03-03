@@ -1,1 +1,126 @@
-<p>profile works!</p>
+<div class="">
+    <h1 class="fw-bold">Información Personal</h1>
+    <p class="m-0 p-0 text-light">Actualiza tu foto y datos personales aquí</p>
+</div>
+
+
+<div class="d-flex flex-column gap-3 align-items-center justify-content-center mt-5">
+    <div class="perfil-logo flex-shrink-0 rounded-circle d-flex align-items-center justify-content-center"
+         [ngClass]="userService.user()?.photo_perfil ? '': 'bg-primary bg-opacity-25'"
+    >
+        @if (userService.user()?.photo_perfil) {
+            <img src="{{userService.user()?.photo_perfil}}"
+                 class="img-fluid rounded-circle w-100 h-100">
+        } @else {
+            <span class="fs-5 fw-bold ">{{ userService.initialName() }}</span>
+        }
+    </div>
+    <div class="d-flex gap-3">
+        <input type="file" #fileInput (change)="onFileSelected($event)" class="d-none">
+        @if (userService.user()?.photo_perfil) {
+            <button type="button" class="btn btn-sm btn-danger" (click)="removePhoto()">
+                Quitar foto
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()">
+                Editar foto
+            </button>
+        } @else {
+            <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()">
+                Añadir una foto
+            </button>
+        }
+
+
+    </div>
+</div>
+
+
+<form [formGroup]="formPerfil" class="mt-4">
+    <div class="mb-3">
+        <i class="fa-regular fa-user pe-3"></i>
+        <label for="names" class="form-label fw-semibold">Nombres</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Nombre y Apellido"
+               id="names"
+               formControlName="names"
+               [ngClass]="isFieldInvalid('names') ? 'is-invalid':''"
+        >
+        @if (isFieldInvalid('names')) {
+            <div class="text-danger mt-2">
+                @if (formPerfil.get('names')?.errors?.['required']) {
+                    <span>Se requiere los nombres.</span>
+                }
+            </div>
+        }
+
+    </div>
+
+    <div class="mb-3">
+        <i class="fa-regular fa-envelope pe-3"></i>
+        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+        <input type="email"
+               class="form-control"
+               placeholder="nombre@gmail.com"
+               id="email"
+               formControlName="email"
+               [ngClass]="isFieldInvalid('email') ? 'is-invalid':''"
+        >
+        @if (isFieldInvalid('email')) {
+            <div class="text-danger mt-2">
+                @if (formPerfil.get('email')?.errors?.['required']) {
+                    <span>Se requiere del correo electrónico.</span>
+                }
+                @if (formPerfil.get('email')?.errors?.['email']) {
+                    <span>Correo electrónico no valido.</span>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <i class="fa-solid fa-mobile-screen pe-3"></i>
+            <label for="phone" class="form-label fw-semibold">Numero de teléfono</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="+34987654321"
+                   id="phone"
+                   formControlName="phone"
+                   [ngClass]="isFieldInvalid('phone') ? 'is-invalid':''"
+            >
+            @if (isFieldInvalid('phone')) {
+                <div class="text-danger mt-2">
+                    @if (formPerfil.get('phone')?.errors?.['minlength']) {
+                        <span>Numero de teléfono invalido</span>
+                    }
+                    @if (formPerfil.get('phone')?.errors?.['maxlength']) {
+                        <span>Numero de teléfono invalido</span>
+                    }
+                </div>
+            }
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <i class="fa-regular fa-calendar pe-3"></i>
+            <label for="date_birth" class="form-label fw-semibold">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="date_birth" formControlName="date_birth">
+            @if (isFieldInvalid('date_birth')) {
+                <div class="text-danger mt-2">
+                    @if (formPerfil.get('date_birth')?.errors?.['required']) {
+                        <span>Se requiere de una fecha de nacimiento.</span>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="mt-5 w-100 d-flex justify-content-end align-items-end">
+        <button class="btn btn-primary" [disabled]="formPerfil.invalid"
+                (click)="updateInfoPersonal()"
+        >
+            <i class="fa-solid fa-floppy-disk pe-2"></i>
+            Guardar cambios
+        </button>
+    </div>
+</form>
+

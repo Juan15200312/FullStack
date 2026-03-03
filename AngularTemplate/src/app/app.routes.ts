@@ -93,11 +93,6 @@ export const routes: Routes = [
                         canActivate: [authGuard],
                     },
                     {
-                        path: 'payment-methods',
-                        loadComponent: () => import('./features/user/payment-methods/payment-methods').then((c) => c.PaymentMethods),
-                        canActivate: [authGuard],
-                    },
-                    {
                         path: 'shipping-addresses',
                         loadComponent: () => import('./features/user/shipping-address/shipping-address').then((c) => c.ShippingAddress),
                         canActivate: [authGuard],

@@ -9,6 +9,8 @@ import {AuthLocal} from "../localStorage/auth-local";
 import {AlertQuestionService} from "../alerts-question/alert-question-service";
 import {Router} from "@angular/router";
 import {CheckoutService} from "../checkout/checkout-service";
+import {InfoPersonal} from "../../interfaces/user/infoPersonal";
+import {UserPassword} from "../../interfaces/user/userPassword";
 
 @Injectable({
     providedIn: 'root',
@@ -58,12 +60,25 @@ export class UserService {
         return this.http.get<any>(`${this.URL}/user-info/`);
     }
 
+    getInfoPersonal() {
+        return this.http.get<any>(`${this.URL}/info-personal/`);
+    }
+
+    updateInfoPersonal(info:any) {
+        return this.http.patch<any>(`${this.URL}/info-personal/`, info);
+    }
+
     initialName(){
         if (this.user()) {
             return this.user()?.names.charAt(0).toUpperCase()
         }
         return '';
     }
+
+    updatePassword(userPassword:UserPassword){
+        return this.http.patch<any>(`${this.URL}/update-password/`, userPassword);
+    }
+
 
     logout() {
         this.alertQuestionService.notify(
