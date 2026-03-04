@@ -2,8 +2,10 @@ from django.db import models
 
 class OrderItemModel(models.Model):
     order = models.ForeignKey('OrderModel', related_name='items', on_delete=models.CASCADE)
-    book_id = models.ForeignKey('Books.BookModel', related_name='book', on_delete=models.CASCADE)
-    count = models.IntegerField()
+    book = models.ForeignKey('Books.BookModel', related_name='order_items', on_delete=models.PROTECT)
+    count = models.PositiveIntegerField()
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+    title_x = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'orderItems'

@@ -17,7 +17,7 @@ export const authResponseInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req).pipe(
         catchError(err => {
             if (err instanceof HttpErrorResponse && err.status === 401) {
-                if (req.url.includes('/token/refresh/')) {
+                if (req.url.includes('/token/refresh/') || req.url.includes('/token/verify/')) {
                     cookieService.removeAll();
                     sessionStorageService.removeAll();
 

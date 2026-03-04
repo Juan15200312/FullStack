@@ -1,5 +1,5 @@
 export interface ShippingSend {
-    names: string;
+    names_shipping: string;
     email: string;
     phone: string;
     street_address: string;

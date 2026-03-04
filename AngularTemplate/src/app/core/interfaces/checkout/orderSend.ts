@@ -10,4 +10,6 @@ export interface OrderSend {
     }[],
     total: number,
     cupon_code?: string,
+    expected_delivery_from: string,
+    expected_delivery_to: string,
 }

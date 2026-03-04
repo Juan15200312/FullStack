@@ -3,6 +3,7 @@ import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {LoginSend} from "../../interfaces/auth/loginSend";
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,6 +27,10 @@ export class AuthService {
 
   refreshToken(refresh_token:string){
     return this.http.post<any>(`${this.URL}/token/refresh/`, {refresh : refresh_token})
+  }
+
+  verifyToken(token:string){
+    return this.http.post<any>(`${this.URL}/token/verify/`, {token : token})
   }
 
 }

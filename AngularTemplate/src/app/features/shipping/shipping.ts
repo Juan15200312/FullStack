@@ -19,18 +19,19 @@ import {ShippingSend} from "../../core/interfaces/checkout/shippingSend";
 })
 export class Shipping {
     protected cartService = inject(CartService)
-    protected optionDelivery:string = 'standard';
+    protected optionDelivery:string = 'ST';
     private formBuilder = inject(FormBuilder);
     private router = inject(Router);
     private checkoutService = inject(CheckoutService)
 
     protected formDeliveryInfo:FormGroup = this.formBuilder.group({
-        names: ['', Validators.required],
+        names_shipping: ['', Validators.required],
         street_address: ['', Validators.required],
         city: ['', Validators.required],
         zip_code: ['', Validators.required],
         phone: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+        delivery: ['ST']
     })
 
     isFieldInvalid(field: string): boolean {
@@ -40,10 +41,16 @@ export class Shipping {
 
     changeDelivery(delivery:string){
         this.optionDelivery= delivery;
-        if (delivery == 'standard'){
+        if (delivery == 'ST'){
             this.cartService.delivery.set(5)
+            this.formDeliveryInfo.patchValue({
+                delivery: 'ST'
+            })
         }else {
             this.cartService.delivery.set(10)
+            this.formDeliveryInfo.patchValue({
+                delivery: 'EX'
+            })
         }
     }
 

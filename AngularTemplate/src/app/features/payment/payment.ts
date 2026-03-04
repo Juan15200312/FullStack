@@ -59,7 +59,7 @@ export class Payment {
                 this.sessionStorage.remove('payment');
                 this.sessionStorage.remove('delivery');
                 this.checkoutService.clearCheckout()
-                this.router.navigate(['/cart/message-payment']);
+                this.router.navigate(['/cart/message-payment'], {state: response});
             }, error: error => {
                 console.log(error)
             }

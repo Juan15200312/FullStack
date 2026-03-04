@@ -1,14 +1,18 @@
+from django.db import transaction
 from rest_framework import serializers
 from Books.models import BookModel, CuponModel
-from Checkout.models import OrderModel
+from Checkout.models import OrderModel, OrderItemModel
+from Checkout.serializers.order_item_serializer import OrderItemSerializer
 
 
 class OrderSerializer(serializers.Serializer):
     shipping = serializers.JSONField()
     payment = serializers.JSONField(required=False)
-    items = serializers.ListField()
+    items = OrderItemSerializer(many=True)
     total = serializers.DecimalField(max_digits=10, decimal_places=2)
     cupon_code = serializers.CharField(required=False, allow_blank=True)
+    expected_delivery_from = serializers.DateField()
+    expected_delivery_to = serializers.DateField()
 
 
     class Meta:
@@ -22,7 +26,8 @@ class OrderSerializer(serializers.Serializer):
         items_cart = data.get('items', [])
         total_angular = data.get('total', 0)
         cupon_code = data.get('cupon_code', '')
-        delivery = data.get('shipping', {}).get('delivery', 0)
+        delivery = data.get('shipping', {}).get('delivery')
+        price_delivery = 5 if delivery == 'ST' else 10
         iva = 0.04
 
         if not items_cart:
@@ -43,17 +48,51 @@ class OrderSerializer(serializers.Serializer):
             cupon = CuponModel.objects.get(code=cupon_code)
             discount = cupon.discount * total_servidor / 100
 
-        total_servidor = total_servidor - discount + delivery + total_servidor*iva
+        total_servidor = total_servidor - discount + price_delivery + total_servidor*iva
 
         print(round(total_servidor, 2))
         print(total_angular)
+        print(type(total_servidor))
+        print(type(total_angular))
 
-        if total_angular != round(total_servidor, 2):
+        if float(total_angular) != float(round(total_servidor, 2)):
             raise serializers.ValidationError('Los precios no coinciden con la BBDD.')
 
-        return {
-            'success': True
-        }
+        return data
 
     def create(self, validated_data):
-        pass
+        with transaction.atomic():
+            shipping = validated_data.pop('shipping')
+            items = validated_data.pop('items')
+            request = self.context.get('request')
+
+            print(request.user)
+            print(request.user.is_authenticated)
+
+            order = OrderModel.objects.create(
+                user= request.user if request.user.is_authenticated else None,
+                names_shipping=shipping.get('names_shipping'),
+                email=shipping.get('email'),
+                phone=shipping.get('phone'),
+                street_address=shipping.get('street_address'),
+                city=shipping.get('city'),
+                zip_code=shipping.get('zip_code'),
+                delivery=shipping.get('delivery'),
+                total=validated_data['total'],
+                cupon_code=validated_data.get('cupon_code'),
+                expected_delivery_from=validated_data.get('expected_delivery_from'),
+                expected_delivery_to=validated_data.get('expected_delivery_to'),
+            )
+            order_items = []
+            for item in items:
+                book = BookModel.objects.get(id=item.get('book_id'))
+
+                order_items.append(OrderItemModel(
+                    order= order,
+                    book=book,
+                    count=item.get('count'),
+                    unit_price=book.price,
+                    title_x=book.title
+                ))
+            OrderItemModel.objects.bulk_create(order_items)
+            return order

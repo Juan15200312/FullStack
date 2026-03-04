@@ -1,0 +1,65 @@
+<section class="my-5 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="px-4 py-1 cont w-100 d-flex align-items-center justify-content-center">
+        <div class="bg-white-shadow rounded-3 w-100 cont-ja d-flex flex-column align-items-center justify-content-center p-4">
+            <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                <i class="fa-solid fa-location-dot fs-1 text-primary"></i>
+            </div>
+
+            <div class="d-flex flex-column gap-2 justify-content-center text-center mt-4">
+                <h3 class="fw-semibold">Seguimiento de su pedido</h3>
+                <p class="m-0 p-0 text-light">Ingrese su ID de su pedido y la dirección de correo electrónico utilizada
+                    durante la compra para ver el estado actual</p>
+            </div>
+
+            <form class="mt-4 w-100" [formGroup] = "formOrder" (ngSubmit)="verifyOrder()">
+                <div class="mb-3">
+                    <label for="slug" class="form-label fw-semibold">ID del pedido</label>
+                    <input type="text"
+                           class="form-control"
+                           placeholder="ID del pedido"
+                           id="slug"
+                           formControlName="slug"
+                           [ngClass]="isFieldInvalid('slug') ? 'is-invalid':''"
+                    >
+                    @if (isFieldInvalid('slug')){
+                        <div class="text-danger mt-2">
+                            @if (formOrder.get('slug')?.errors?.['required']){
+                                <span>Se requiere los nombres.</span>
+                            }
+                        </div>
+                    }
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                    <input type="email"
+                           class="form-control"
+                           placeholder="nombre@gmail.com"
+                           id="email"
+                           formControlName="email"
+                           [ngClass]="isFieldInvalid('email') ? 'is-invalid':''"
+                    >
+                    @if (isFieldInvalid('email')) {
+                        <div class="text-danger mt-2">
+                            @if (formOrder.get('email')?.errors?.['required']){
+                                <span>Se requiere del correo electrónico.</span>
+                            }
+                            @if (formOrder.get('email')?.errors?.['email']){
+                                <span>Correo electrónico no valido.</span>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex justify-content-center mt-5">
+                    <button class="btn btn-primary" [disabled]="formOrder.invalid">
+                        <i class="fa-solid fa-magnifying-glass pe-4"></i>
+                        Ver pedido
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

@@ -36,9 +36,13 @@ export const routes: Routes = [
                 canActivate: [authGuard],
             },
             {
-                path: 'library',
-                loadComponent: () => import('./features/library/library').then((c) => c.Library),
-                canActivate: [authGuard],
+                path: 'orders',
+                loadComponent: () => import('./features/order/order').then((c) => c.Order),
+            },
+            {
+                path: 'orders/:slug',
+                loadComponent: () => import('./features/order-detail/order-detail').then((c) => c.OrderDetail),
+
             },
             {
                 path: 'cart',

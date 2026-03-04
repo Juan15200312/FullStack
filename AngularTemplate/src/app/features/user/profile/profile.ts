@@ -4,6 +4,7 @@ import {NgClass} from "@angular/common";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {InfoPersonal} from "../../../core/interfaces/user/infoPersonal";
 import {NgbInputDatepicker} from "@ng-bootstrap/ng-bootstrap";
+import {MessageService} from "../../../core/services/messages/message-service";
 
 @Component({
     selector: 'app-profile',
@@ -18,6 +19,7 @@ export class Profile {
     protected userService = inject(UserService);
     private infoPersonal = signal<InfoPersonal | null>(null)
     private fb = inject(FormBuilder);
+    private messagesService = inject(MessageService);
     private imageSelected: File | null = null
     protected formPerfil = this.fb.group({
         names: [this.infoPersonal()?.names, Validators.required],
@@ -50,9 +52,21 @@ export class Profile {
                 console.log(response);
                 this.infoPersonal.set(response);
                 this.formPerfil.patchValue(response)
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-up',
+                    message: '¡Se removio la foto de perfil con exito!',
+                    color: 'success',
+                    view: true,
+                })
             },
             error: error => {
                 console.log(error);
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-down',
+                    message: '¡Ocurrio un error al remover la foto de perfil!',
+                    color: 'danger',
+                    view: true,
+                })
             }
         })
         this.userService.user.set({
@@ -74,9 +88,23 @@ export class Profile {
                 console.log(response);
                 this.infoPersonal.set(response);
                 this.formPerfil.patchValue(response)
+                this.infoPersonal.set(response);
+                this.formPerfil.patchValue(response)
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-up',
+                    message: '¡Se actualizo su informacion personal con exito!',
+                    color: 'success',
+                    view: true,
+                })
             },
             error: error => {
                 console.log(error);
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-down',
+                    message: '¡Ocurrio un error al actualizar su informacion personal!',
+                    color: 'danger',
+                    view: true,
+                })
             }
         })
     }
@@ -99,8 +127,24 @@ export class Profile {
             next: response => {
                 this.infoPersonal.set(response);
                 this.userService.user.set(response);
+                this.infoPersonal.set(response);
+                this.formPerfil.patchValue(response)
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-up',
+                    message: '¡Se actualizo su foto de perfil con exito!',
+                    color: 'success',
+                    view: true,
+                })
             },
-            error: err => console.error('Error subiendo imagen', err)
+            error: error => {
+                console.log(error);
+                this.messagesService.notify({
+                    icon: 'fa-solid fa-thumbs-down',
+                    message: '¡Ocurrio un error al actualizar la foto de perfil!',
+                    color: 'danger',
+                    view: true,
+                })
+            }
         });
     }
 }

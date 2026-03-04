@@ -43,6 +43,26 @@ export class CheckoutService {
         this.shipping.set(this.loadShipping())
     }
 
+    expectedDeliveryDates(delivery:boolean) {
+        const now = new Date();
+        const from = new Date(now);
+        from.setDate(now.getDate() + 1)
+        const to = new Date(now);
+        if(delivery){
+            to.setDate(now.getDate() + 1);
+        }else {
+            to.setDate(now.getDate() + 4);
+        }
+
+        const format = (date: Date) =>
+            `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2,'0')}-${date.getDate().toString().padStart(2,'0')}`;
+
+        return {
+            from: format(from),
+            to: format(to)
+        };
+    }
+
 
     finalOrder = computed<OrderSend | null>(() => {
         const cupon = this.cartService.cupon();
@@ -54,6 +74,8 @@ export class CheckoutService {
         if (this.cartService.countItems() === 0 || !shipping || !payment) {
             return null
         }
+        const d:boolean = shipping.delivery === 'EX';
+        const dates = this.expectedDeliveryDates(d)
 
         return {
             shipping: shipping,
@@ -63,7 +85,9 @@ export class CheckoutService {
                 count: item.count
             })),
             total: Math.round(this.cartService.total() * 100) /100,
-            cupon_code: cupon ? cupon.code : undefined
+            cupon_code: cupon ? cupon.code : undefined,
+            expected_delivery_from: dates.from,
+            expected_delivery_to: dates.to,
         };
     })
 
@@ -72,5 +96,8 @@ export class CheckoutService {
         return this.http.post(`${this.URL}/order/`, order)
     }
 
+    searchOrder(slug: string, email: string){
+        return this.http.get(`${this.URL}/order/${slug}/`, {params: {email}})
+    }
 
 }

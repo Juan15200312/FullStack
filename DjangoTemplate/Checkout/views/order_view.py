@@ -12,10 +12,17 @@ class OrderView(GenericAPIView):
     serializer_class = OrderSerializer
 
     def post(self, request,*args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(data=request.data, context={'request': request})
 
         if serializer.is_valid():
-            return Response(serializer.validated_data, status=status.HTTP_200_OK)
+            order = serializer.save()
+            return Response({
+                'success': True,
+                'data': {
+                    'names_shipping': order.names_shipping,
+                    'slug': order.slug
+                }
+            }, status=status.HTTP_200_OK)
 
         error_messages = order_errors(serializer.errors)
         return Response({'errors': error_messages}, status=status.HTTP_400_BAD_REQUEST)

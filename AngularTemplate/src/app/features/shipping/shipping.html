@@ -10,14 +10,14 @@
                 <form class="mt-4" [formGroup]="formDeliveryInfo">
 
                     <div class="mb-3">
-                        <label for="names" class="form-label fw-semibold">Nombres completos</label>
-                        <input type="text" class="form-control" id="names" placeholder="ej: Juan Ortiz Olivares"
-                               formControlName="names"
-                               [ngClass]="isFieldInvalid('names') ? 'is-invalid': ''"
+                        <label for="names_shipping" class="form-label fw-semibold">Nombres completos</label>
+                        <input type="text" class="form-control" id="names_shipping" placeholder="ej: Juan Ortiz Olivares"
+                               formControlName="names_shipping"
+                               [ngClass]="isFieldInvalid('names_shipping') ? 'is-invalid': ''"
                         >
-                        @if (isFieldInvalid('names')) {
+                        @if (isFieldInvalid('names_shipping')) {
                             <div class="text-danger mt-2">
-                                @if (formDeliveryInfo.get('names')?.errors?.['required']) {
+                                @if (formDeliveryInfo.get('names_shipping')?.errors?.['required']) {
                                     <span>Se requiere de este campo.</span>
                                 }
                             </div>
@@ -119,12 +119,12 @@
                 </div>
 
                 <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10  rounded-3 border  border-2"
-                     [ngClass]="optionDelivery == 'standard' ? 'bg-primary border-primary': 'border-secondary'"
-                     (click)="changeDelivery('standard')"
+                     [ngClass]="optionDelivery == 'ST' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('ST')"
                 >
                     <div class="form-check d-flex align-items-center">
                         <input class="form-check-input" type="radio" name="delivery" id="delivery1"
-                               [checked]="optionDelivery == 'standard'">
+                               [checked]="optionDelivery == 'ST'">
                     </div>
 
                     <div class="d-flex flex-column w-100">
@@ -139,12 +139,12 @@
                 </div>
 
                 <div class="d-flex gap-3 w-100 mt-4 p-3 c-pointer bg-opacity-10 rounded-3 border border-2"
-                     [ngClass]="optionDelivery == 'express' ? 'bg-primary border-primary': 'border-secondary'"
-                     (click)="changeDelivery('express')"
+                     [ngClass]="optionDelivery == 'EX' ? 'bg-primary border-primary': 'border-secondary'"
+                     (click)="changeDelivery('EX')"
                 >
                     <div class="form-check d-flex align-items-center">
                         <input class="form-check-input" type="radio" name="delivery" id="delivery2"
-                               [checked]="optionDelivery == 'express'">
+                               [checked]="optionDelivery == 'EX'">
                     </div>
 
                     <div class="d-flex flex-column w-100">
