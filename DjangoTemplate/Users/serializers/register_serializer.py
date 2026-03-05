@@ -1,6 +1,6 @@
 import re
 from rest_framework import serializers
-from Users.models import CustomUser
+from Users.models import CustomUser, InfoUserModel
 
 
 def validarPassword(password):
@@ -56,7 +56,12 @@ class RegisterSerializer(serializers.ModelSerializer):
             names = validated_data.get('names'),
             email= validated_data.get('email'),
         )
-
         user.set_password(password)
+        user.is_active = True
         user.save()
+
+        info = InfoUserModel.objects.create(
+            user=user
+        )
+        info.save()
         return user

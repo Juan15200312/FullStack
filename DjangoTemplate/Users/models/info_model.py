@@ -26,6 +26,6 @@ class InfoUserModel(models.Model):
         return self.user.names
 
     def save(self, *args, **kwargs):
-        if '+34' not in self.phone:
+        if self.phone and '+34' not in self.phone:
             self.phone = f'+34{self.phone}'
         return super().save(*args, **kwargs)

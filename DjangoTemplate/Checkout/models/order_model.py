@@ -21,12 +21,13 @@ class OrderModel(models.Model):
     delivery = models.CharField(max_length=2, choices=[('ST','Estándar'), ('EX','Rápida')], default='ST',
                                 verbose_name="Tipo de envio")
 
-    payment_processor = models.CharField(max_length=50, null=True, blank=True)
-    payment_intent_id = models.CharField(max_length=255, null=True, blank=True)
-    payment_transaction_id = models.CharField(max_length=255, null=True, blank=True)
-    payment_status = models.CharField(max_length=50, default='PENDING')
-    payment_method_last4 = models.CharField(max_length=4, null=True, blank=True)
-    payment_method_brand = models.CharField(max_length=50, null=True, blank=True)
+    # DATOS PARA PROCESAR EL PAGO
+    # payment_processor = models.CharField(max_length=50, null=True, blank=True)
+    # payment_intent_id = models.CharField(max_length=255, null=True, blank=True)
+    # payment_transaction_id = models.CharField(max_length=255, null=True, blank=True)
+    # payment_status = models.CharField(max_length=50, default='PENDING')
+    # payment_method_last4 = models.CharField(max_length=4, null=True, blank=True)
+    # payment_method_brand = models.CharField(max_length=50, null=True, blank=True)
 
 
     total = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
