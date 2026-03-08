@@ -1,13 +1,15 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgClass} from "@angular/common";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {UserService} from "../../core/services/user/user-service";
 
 @Component({
     selector: 'app-order',
     imports: [
         ReactiveFormsModule,
-        NgClass
+        NgClass,
+        RouterLink
     ],
     templateUrl: './order.html',
     styleUrl: './order.scss',
@@ -15,9 +17,12 @@ import {Router} from "@angular/router";
 export class Order {
     private fb = inject(FormBuilder)
     private router = inject(Router);
+    protected userService = inject(UserService);
     protected formOrder = this.fb.group({
         slug: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
+        email: ['',
+            this.userService.user() ? [Validators.email] : [Validators.email, Validators.required]
+        ],
     })
 
     isFieldInvalid(field: string): boolean {
@@ -31,11 +36,17 @@ export class Order {
             return;
         }
 
-        const { slug, email } = this.formOrder.value;
+        if (this.userService.user()){
+            const { slug } = this.formOrder.value;
 
-        this.router.navigate(['/orders', slug], {
-            queryParams: { email }
-        });
+            this.router.navigate(['/orders', slug]);
+        }else {
+            const { slug, email } = this.formOrder.value;
+
+            this.router.navigate(['/orders', slug], {
+                queryParams: { email }
+            });
+        }
 
     }
 

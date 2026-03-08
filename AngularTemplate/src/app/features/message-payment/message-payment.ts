@@ -1,6 +1,7 @@
 import {Component, inject, signal} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {MessageService} from "../../core/services/messages/message-service";
+import {UserService} from "../../core/services/user/user-service";
 
 @Component({
   selector: 'app-message-payment',
@@ -24,7 +25,7 @@ export class MessagePayment {
   }
 
   copyText() {
-    navigator.clipboard.writeText(this.customerName).then(r => {
+    navigator.clipboard.writeText(this.orderSlug).then(r => {
       this.messageService.notify({
         icon: 'fa-solid fa-thumbs-up',
         message: '¡Copiado!',

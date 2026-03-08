@@ -10,4 +10,4 @@ class OrderItemModel(models.Model):
     class Meta:
         db_table = 'orderItems'
         verbose_name = 'OrderItem'
-        verbose_name_plural = '2. OrderItems'
+        verbose_name_plural = '2. Items de pedidos'

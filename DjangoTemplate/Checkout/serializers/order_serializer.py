@@ -1,24 +1,20 @@
 from django.db import transaction
 from rest_framework import serializers
 from Books.models import BookModel, CuponModel
-from Checkout.models import OrderModel, OrderItemModel
+from Checkout.models import OrderModel, OrderItemModel, ShippingModel
 from Checkout.serializers.order_item_serializer import OrderItemSerializer
+from Checkout.serializers.shipping_serializer import ShippingSerializer
 
 
 class OrderSerializer(serializers.Serializer):
-    shipping = serializers.JSONField()
+    from Checkout.serializers.shipping_serializer import ShippingSerializer
+    shipping = ShippingSerializer(many=False)
     payment = serializers.JSONField(required=False)
     items = OrderItemSerializer(many=True)
     total = serializers.DecimalField(max_digits=10, decimal_places=2)
     cupon_code = serializers.CharField(required=False, allow_blank=True)
     expected_delivery_from = serializers.DateField()
     expected_delivery_to = serializers.DateField()
-
-
-    class Meta:
-        model = OrderModel
-        fields = ('shipping', 'payment', 'items', 'total', 'cupon_code')
-
 
     def validate(self, data):
         discount = 0
@@ -62,23 +58,23 @@ class OrderSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         with transaction.atomic():
-            shipping = validated_data.pop('shipping')
+            shipping_data = validated_data.pop('shipping')
             items = validated_data.pop('items')
             request = self.context.get('request')
 
             print(request.user)
             print(request.user.is_authenticated)
 
+            shipping_serializer = ShippingSerializer(data=shipping_data, context={'request': request})
+            if not shipping_serializer.is_valid():
+                raise serializers.ValidationError(shipping_serializer.errors)
+
+            shipping = shipping_serializer.save()
+
             order = OrderModel.objects.create(
                 user= request.user if request.user.is_authenticated else None,
-                names_shipping=shipping.get('names_shipping'),
-                email=shipping.get('email'),
-                phone=shipping.get('phone'),
-                street_address=shipping.get('street_address'),
-                city=shipping.get('city'),
-                zip_code=shipping.get('zip_code'),
-                delivery=shipping.get('delivery'),
                 total=validated_data['total'],
+                shipping=shipping,
                 cupon_code=validated_data.get('cupon_code'),
                 expected_delivery_from=validated_data.get('expected_delivery_from'),
                 expected_delivery_to=validated_data.get('expected_delivery_to'),

@@ -4,8 +4,11 @@ import {ShippingSend} from "../../interfaces/checkout/shippingSend";
 import {PaymentSend} from "../../interfaces/checkout/paymentSend";
 import {OrderSend} from "../../interfaces/checkout/orderSend";
 import {environment} from "../../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEvent} from "@angular/common/http";
 import {SessionStorageService} from "../sessionStorage/session-storage.service";
+import {Observable} from "rxjs";
+import {OrderPartResponse} from "../../interfaces/checkout/order-part-Response";
+import {Pagination} from "../../interfaces/pagination/pagination";
 
 @Injectable({
     providedIn: 'root',
@@ -93,11 +96,20 @@ export class CheckoutService {
 
 
     post(order:any){
-        return this.http.post(`${this.URL}/order/`, order)
+        return this.http.post<any>(`${this.URL}/order/`, order)
     }
 
-    searchOrder(slug: string, email: string){
-        return this.http.get(`${this.URL}/order/${slug}/`, {params: {email}})
+    searchOrder(data:any){
+        const options: any = {};
+
+        if (data.email) {
+            options.params = { email: data.email };
+        }
+
+        return this.http.get<any>(`${this.URL}/order/${data.slug}/`, options);
     }
 
+    orderDetailPart(pag:number){
+        return this.http.get<Pagination<OrderPartResponse>>(`${this.URL}/orders-part/?page=${pag}`)
+    }
 }

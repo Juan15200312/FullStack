@@ -19,7 +19,7 @@ class OrderView(GenericAPIView):
             return Response({
                 'success': True,
                 'data': {
-                    'names_shipping': order.names_shipping,
+                    'names_shipping': order.shipping.names_shipping,
                     'slug': order.slug
                 }
             }, status=status.HTTP_200_OK)

@@ -31,26 +31,39 @@
 
                 </div>
 
-                <div class="mb-3">
-                    <label for="email" class="form-label fw-semibold">Correo electrónico</label>
-                    <input type="email"
-                           class="form-control"
-                           placeholder="nombre@gmail.com"
-                           id="email"
-                           formControlName="email"
-                           [ngClass]="isFieldInvalid('email') ? 'is-invalid':''"
-                    >
-                    @if (isFieldInvalid('email')) {
-                        <div class="text-danger mt-2">
-                            @if (formOrder.get('email')?.errors?.['required']){
-                                <span>Se requiere del correo electrónico.</span>
-                            }
-                            @if (formOrder.get('email')?.errors?.['email']){
-                                <span>Correo electrónico no valido.</span>
-                            }
-                        </div>
-                    }
-                </div>
+                @if (!userService.user()){
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                        <input type="email"
+                               class="form-control"
+                               placeholder="nombre@gmail.com"
+                               id="email"
+                               formControlName="email"
+                               [ngClass]="isFieldInvalid('email') ? 'is-invalid':''"
+                        >
+                        @if (isFieldInvalid('email')) {
+                            <div class="text-danger mt-2">
+                                @if (formOrder.get('email')?.errors?.['required']){
+                                    <span>Se requiere del correo electrónico.</span>
+                                }
+                                @if (formOrder.get('email')?.errors?.['email']){
+                                    <span>Correo electrónico no valido.</span>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div>
+                        <span>¿Tienes una cuenta?</span>
+                        <span class="c-pointer text-primary fw-semibold" routerLink="/auth"> Inicia sesión para ver todos los pedidos.</span>
+                    </div>
+                } @else {
+                    <div>
+                        <span class="c-pointer text-primary fw-semibold" routerLink="/user/orders">Ver historial de pedidos.</span>
+                    </div>
+                }
+
+
 
                 <div class="d-flex justify-content-center mt-5">
                     <button class="btn btn-primary" [disabled]="formOrder.invalid">

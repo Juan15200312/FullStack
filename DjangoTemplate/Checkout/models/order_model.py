@@ -5,21 +5,14 @@ from django.db import models
 class OrderModel(models.Model):
     class Status(models.TextChoices):
         PENDING = 'PENDING', 'Pendiente'
-        PAID = 'PAID', 'Pagado'
-        FAILED = 'FAILED', 'Fallido'
-        CANCELLED = 'CANCELLED', 'Cancelado'
+        DELIVERED = 'DELIVERED', 'Entregado'
+        SHIPPED = 'SHIPPED', 'Enviado'
+        CANCELED = 'CANCELED', 'Cancelado'
 
     user = models.ForeignKey('Users.CustomUser', null=True, blank=True, on_delete=models.SET_NULL, related_name='orders', verbose_name="Usuario")
     slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
 
-    names_shipping = models.CharField(max_length=150, blank=False, null=False, verbose_name="Nombres")
-    email = models.EmailField(blank=False, null=False)
-    phone = models.CharField(max_length=11, blank=False, null=False)
-    street_address = models.TextField(max_length=255, blank=False, null=False, verbose_name='Dirección de la calle')
-    city = models.CharField(max_length=100, blank=False, null=False)
-    zip_code = models.CharField(max_length=10, blank=False, null=False)
-    delivery = models.CharField(max_length=2, choices=[('ST','Estándar'), ('EX','Rápida')], default='ST',
-                                verbose_name="Tipo de envio")
+    shipping = models.ForeignKey('ShippingModel', on_delete=models.SET_NULL, null=True, blank=True, related_name='orders_shipping')
 
     # DATOS PARA PROCESAR EL PAGO
     # payment_processor = models.CharField(max_length=50, null=True, blank=True)
@@ -46,11 +39,11 @@ class OrderModel(models.Model):
     class Meta:
         db_table = 'orders'
         verbose_name = 'Order'
-        verbose_name_plural = '1. Orders'
+        verbose_name_plural = '1. Pedidos'
 
 
     def __str__(self):
-        return self.names_shipping
+        return self.shipping.names_shipping if self.shipping else ''
 
     def save(self, *args, **kwargs):
         if not self.slug:
